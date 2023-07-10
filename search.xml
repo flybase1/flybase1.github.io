@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>hexo的个性化配置</title>
+      <title>hexo存在提交github后,xxx.gitHub.io不更新</title>
       <link href="/post/344c3b7c.html"/>
       <url>/post/344c3b7c.html</url>
       
-        <content type="html"><![CDATA[<h2 id="第一次发布"><a href="#第一次发布" class="headerlink" title="第一次发布"></a>第一次发布</h2><p>第一次发布</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h2><p>hexo clean<br>hexo g -d</p><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>缓存未及时更新</p>]]></content>
       
       
       <categories>
