@@ -71,10 +71,9 @@ $(function () {
     /*文章内容详情的一些初始化特性*/
     let articleInit = function () {
         $('#articleContent a').attr('target', '_blank');
-
         $('#articleContent img').each(function () {
             let imgPath = $(this).attr('src');
-            $(this).wrap('<div class="img-item" data-src="' + imgPath + '" data-sub-html=".caption"></div>');
+            $(this).wrap('<div class="Rimg-item" data-src="' + imgPath + '" data-sub-html=".caption"></div>');
             // 图片添加阴影
             $(this).addClass("img-shadow img-margin");
             // 图片添加字幕
