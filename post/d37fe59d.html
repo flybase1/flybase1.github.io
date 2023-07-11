@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo存在提交github后,xxx.gitHub.io不更新, FlyCode的个人博客">
-    <meta name="description" content="hexo存在提交github后,xxx.gitHub.io不更新">
+    <meta name="keywords" content="java面试题基础(1), FlyCode的个人博客">
+    <meta name="description" content="java面试题基础(1)">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo存在提交github后,xxx.gitHub.io不更新 | FlyCode的个人博客</title>
+    <title>java面试题基础(1) | FlyCode的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -38,7 +38,9 @@
 
 
 
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
     <link rel="stylesheet" href="/css/post.css">
+
 
 
 
@@ -266,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo存在提交github后,xxx.gitHub.io不更新</h1>
+                    <h1 class="description center-align post-title">java面试题基础(1)</h1>
                 </div>
             </div>
         </div>
@@ -281,10 +283,12 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -293,8 +297,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                <span class="chip bg-color">面试题</span>
+                            </a>
+                        
+                            <a href="/tags/java/">
+                                <span class="chip bg-color">java</span>
                             </a>
                         
                     </div>
@@ -305,8 +313,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/hexo/" class="post-category">
-                                hexo
+                            <a href="/categories/java/" class="post-category">
+                                java
                             </a>
                         
                     </div>
@@ -318,7 +326,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-07-10
+                    2023-07-11
                 </div>
                 
 
@@ -327,14 +335,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    7 分
                 </div>
                 
 
@@ -357,8 +365,215 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h2><p>hexo clean<br>hexo g -d</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>缓存未及时更新</p>
+                <h2 id="1-JVM-JDK-JRE"><a href="#1-JVM-JDK-JRE" class="headerlink" title="1. JVM JDK JRE"></a>1. JVM JDK JRE</h2><p>JVM：运行java字节码的虚拟机。保证了可移植性。</p>
+<p>JDK： 包含了所有的java sdk，提供给开发者使用，包含</p>
+<ul>
+<li><ul>
+<li>JRE</li>
+</ul>
+</li>
+<li>javac（编译java源码的编译器）</li>
+<li>javap（反编译）</li>
+<li>jdb（调试器）</li>
+<li>javadoc（文档注释工具）</li>
+<li>……</li>
+</ul>
+<p>JRE:  java运行时环境。</p>
+<ul>
+<li><ul>
+<li>JVM</li>
+</ul>
+</li>
+<li>Class Library（java基础类库）</li>
+</ul>
+<h2 id="2-java的基本数据类型"><a href="#2-java的基本数据类型" class="headerlink" title="2. java的基本数据类型"></a>2. java的基本数据类型</h2><p>数字类型：</p>
+<ul>
+<li><p>整数型</p>
+</li>
+<li><ul>
+<li>byte,short,int,long</li>
+</ul>
+</li>
+<li><p>浮点型</p>
+</li>
+<li><ul>
+<li>double,float</li>
+</ul>
+</li>
+</ul>
+<p>字符型： char</p>
+<p>布尔型：boolean</p>
+<h2 id="3-基本类型和包装类型"><a href="#3-基本类型和包装类型" class="headerlink" title="3. 基本类型和包装类型"></a>3. 基本类型和包装类型</h2><ol>
+<li><strong>用途</strong>:</li>
+</ol>
+<ul>
+<li>包装类型可用于泛型。</li>
+</ul>
+<ol>
+<li><strong>默认值</strong></li>
+</ol>
+<ul>
+<li>基本数据类型都有自己的默认值</li>
+<li>包装类型默认值时null</li>
+</ul>
+<ol>
+<li><strong>存储方式</strong></li>
+</ol>
+<ul>
+<li>包装类型属于对象，存放在java虚拟机的堆里面。</li>
+<li>基本类型的局部变量存放在java虚拟机栈的局部变量表，而成员变量（未被statsic修饰）存放在java虚拟机的堆里面。</li>
+</ul>
+<ol>
+<li><strong>内存空间</strong></li>
+</ol>
+<ul>
+<li>基本数据类型占用内存小</li>
+</ul>
+<ol>
+<li><strong>比较</strong></li>
+</ol>
+<ul>
+<li>基本类型，&#x3D;&#x3D;表示值的比较</li>
+<li>包装类型，&#x3D;&#x3D;表示内存地址的比较，判断相同使用equals</li>
+</ul>
+<h2 id="4-浮点是精度丢失"><a href="#4-浮点是精度丢失" class="headerlink" title="4. 浮点是精度丢失"></a>4. 浮点是精度丢失</h2><p>计算机底层是二进制的，宽度是有限的，不能表示一些长度位数过长的小数，帮小数的长度唱过一定范围的时候，计算机就会进行截取，导致数据丢失。</p>
+<p>解决方案：BigDecimal</p>
+<h2 id="5-抽象类和接口共同点和区别"><a href="#5-抽象类和接口共同点和区别" class="headerlink" title="5. 抽象类和接口共同点和区别"></a>5. 抽象类和接口共同点和区别</h2><p>共同点：</p>
+<ol>
+<li><ol>
+<li>都不能被实例化</li>
+</ol>
+</li>
+<li>都可以包含抽象方法</li>
+</ol>
+<p>不同点</p>
+<ol>
+<li><ol>
+<li>抽象类主要是代码复用，接口主要是对类的行为约束</li>
+</ol>
+</li>
+<li>一个类只能修饰一个类，但是可以实现多个接口</li>
+<li>抽象类成员变量，可以子类重新定义赋值，但是接口类成员变量需要使用public static final修饰，不可以改变值，必须要有初始值</li>
+</ol>
+<h2 id="6-浅拷贝和深拷贝"><a href="#6-浅拷贝和深拷贝" class="headerlink" title="6. 浅拷贝和深拷贝"></a>6. 浅拷贝和深拷贝</h2><p>浅拷贝：会在堆上创建一个新对象。如果对象是引用类型，就会直接复制原对象的引用地址。如果不是引用类型，就会创建一个新对象，与原对象互不关联。</p>
+<p>深拷贝：会在堆上创建一个新对象，完全复制原对象。两者不存在关联。</p>
+<p><img src="http://cdn.flycode.icu/img/202307111641259.png"></p>
+<h2 id="7-Object常见方法"><a href="#7-Object常见方法" class="headerlink" title="7. Object常见方法"></a>7. Object常见方法</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">hashcode</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">wait</span><span class="token punctuation">(</span><span class="token keyword">long</span> timeout<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">wait</span><span class="token punctuation">(</span><span class="token keyword">long</span> timeout<span class="token punctuation">,</span> <span class="token keyword">int</span> <span class="token function">nano</span><span class="token punctuation">(</span>额外时间<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">notifyAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">finalize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">(</span>垃圾回收时触发<span class="token punctuation">)</span>
+<span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="8-HashCode-Equals"><a href="#8-HashCode-Equals" class="headerlink" title="8. HashCode Equals"></a>8. HashCode Equals</h2><p>HashCode：返回一个代表对象的哈希码的整数值</p>
+<p>equals： 比较两个内容是否相同</p>
+<p>&#x3D;&#x3D;: 基本类型比较值，引用类型比较内存地址</p>
+<h2 id="9-String-StringBuffer-StringBuilder"><a href="#9-String-StringBuffer-StringBuilder" class="headerlink" title="9. String,StringBuffer,StringBuilder"></a>9. String,StringBuffer,StringBuilder</h2><p>String: 不可变对象，每次修改值都需要重新创建一个新对象,适用于少量数据。</p>
+<p>StringBuilder: 可变对象，线程不安全，适用于单线程，大量数据，效率高。</p>
+<p>StringBuffer: 可变对象，线程安全，适用于多线程，大量数据，效率低。</p>
+<p>String不可变原因，底层使用final关键字修饰，使用字符数组保存</p>
+<pre class="line-numbers language-plain" data-language="plain"><code class="language-plain">public final class String
+    implements java.io.Serializable, Comparable&lt;String>, CharSequence &#123;
+    private final char value[];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>StringBuffer安全的原因，加锁</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"> <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token keyword">int</span> <span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> count<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token keyword">int</span> <span class="token function">capacity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> value<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>StringBuilder效率高</p>
+<p>StringBuffer源码</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>toStringCache <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        toStringCache <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">copyOfRange</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>toStringCache<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>StringBuilder源码</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// Create a copy, don't share the array</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>很明显StringBuilder每次copy，而StringBuffer有自己的缓存，缓存区有数据的时候，就直接读取，很明显优化了部分内容，但是只要数量足够大的时候，StringBuffer的锁不起作用的时候，StringBuilder效率高。</p>
+<h2 id="10-字符串常量池"><a href="#10-字符串常量池" class="headerlink" title="10. 字符串常量池"></a>10. 字符串常量池</h2><p>jvm为了提交性能和减少内存消耗为String类型专门开辟的一块区域，避免字符串的重复创建。</p>
+<p>举例：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 先在堆上创建aa</span>
+<span class="token comment">// 然后字符串常量池保存aa引用</span>
+<span class="token class-name">String</span> a1 <span class="token operator">=</span> <span class="token string">"aa"</span><span class="token punctuation">;</span>       
+<span class="token comment">// 返回常量池引用</span>
+<span class="token class-name">String</span> a2 <span class="token operator">=</span> <span class="token string">"aa"</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a1 <span class="token operator">==</span> a2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>String a1 &#x3D; new String(“aa”);</p>
+<p>1-2个字符串对象</p>
+<ol>
+<li>字符串常量池里面不存在”aa”引用，会先在堆上创建一个”aa”，然后在字符串常量池中保存”aa”引用。</li>
+<li>字符串常量池里面存在”aa”引用，只会在堆上创建一个”aa”字符串对象</li>
+</ol>
+<p>intern作用</p>
+<p>将指定的字符串的引用保存在字符串常量中。有字符串常量池保存了引用则返回引用，否则常量池创建引用，返回。</p>
+<p>示例</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 在堆中创建字符串对象”Java“</span>
+<span class="token comment">// 将字符串对象”Java“的引用保存在字符串常量池中</span>
+<span class="token class-name">String</span> s1 <span class="token operator">=</span> <span class="token string">"Java"</span><span class="token punctuation">;</span>
+<span class="token comment">// 直接返回字符串常量池中字符串对象”Java“对应的引用</span>
+<span class="token class-name">String</span> s2 <span class="token operator">=</span> s1<span class="token punctuation">.</span><span class="token function">intern</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 会在堆中在单独创建一个字符串对象</span>
+<span class="token class-name">String</span> s3 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span><span class="token string">"Java"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 直接返回字符串常量池中字符串对象”Java“对应的引用</span>
+<span class="token class-name">String</span> s4 <span class="token operator">=</span> s3<span class="token punctuation">.</span><span class="token function">intern</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// s1 和 s2 指向的是堆中的同一个对象</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1 <span class="token operator">==</span> s2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span class="token comment">// s3 和 s4 指向的是堆中不同的对象</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s3 <span class="token operator">==</span> s4<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+<span class="token comment">// s1 和 s4 指向的是堆中的同一个对象</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1 <span class="token operator">==</span> s4<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="11-什么是反射机制？反射机制的优缺点"><a href="#11-什么是反射机制？反射机制的优缺点" class="headerlink" title="11. 什么是反射机制？反射机制的优缺点"></a>11. 什么是反射机制？反射机制的优缺点</h2><p>反射机制：运行时动态的获取类的内部信息，创建对象以及调用对象的属性和方法的机制。</p>
+<p>优点：</p>
+<ul>
+<li>动态的获取类的内部信息，不需要在编译时就知道对象的内部信息。</li>
+<li>动态的创建对象，不需要在编译时知道对象的类型。</li>
+<li>动态的调用对象的属性以及方法，可以在运行时动态的改变对象的行为</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>动态的，效率低</li>
+<li>动态的，不安全，破环java封装。</li>
+</ul>
+<p>应用场景：</p>
+<ul>
+<li>动态代理：使用动态代理可以在运行时动态创建代理对象，不需要在编译的时候知道接口的实现。</li>
+<li>单元测试：Junit单元测试可以使用反射机制在运行时动态的获取类和方法的实现，实现自动化测试。</li>
+<li>配置加载文件：Spring使用反射机制来读取和解析配置文件，实现依赖注入，切面编程。</li>
+<li>个人项目API接口：由于接口是在单独的模块，我不需要知道有哪些接口，我只需要使用反射机制来读取相关接口的信息，然后调用里面的方法。</li>
+</ul>
+<h2 id="12-代理模式"><a href="#12-代理模式" class="headerlink" title="12. 代理模式"></a>12. 代理模式</h2><p>使用代理对象来替代对真实对象的访问，这样可以在不修改对象的原目标的前提下，提供额外的操作，<strong>扩展目标对象的功能</strong>。</p>
+<h3 id="12-1-动态代理"><a href="#12-1-动态代理" class="headerlink" title="12.1. 动态代理"></a>12.1. 动态代理</h3><p>jvm：动态代理是在运行时动态的生成类字节码文件，加载到jvm中去。</p>
+<h4 id="12-1-1-JDK动态代理和CGLIB动态代理机制"><a href="#12-1-1-JDK动态代理和CGLIB动态代理机制" class="headerlink" title="12.1.1. JDK动态代理和CGLIB动态代理机制"></a>12.1.1. JDK动态代理和CGLIB动态代理机制</h4><p>实现方式：JDK动态代理是使用的反射实现的。CGLIB通过继承目标类。</p>
+<p>依赖库：JDK动态代理是通过java自带的库。而CGLIB是依赖cglib库。</p>
+<p>目标类限制：JDK动态代理要求目标类必须要实现接口。</p>
+<p>对象类型：JDK动态代理只能实现接口的类或者直接代理接口，而CGLIB可<strong>以代理未实现任何接口的类。</strong>通过继承实现，生成一个被代理类的子类来拦截被代理类的方法调用，因此不能代理final类。</p>
+<p>应用场景</p>
+<p>JDK动态代理：接口代理</p>
+<p>CGLIB动态代理：类代理</p>
 
                 
             </div>
@@ -385,7 +600,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://flybase1.github.io/post/344c3b7c.html">http://flybase1.github.io/post/344c3b7c.html</a>
+                    <a href="http://flybase1.github.io/post/d37fe59d.html">http://flybase1.github.io/post/d37fe59d.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -423,8 +638,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                    <span class="chip bg-color">面试题</span>
+                                </a>
+                            
+                                <a href="/tags/java/">
+                                    <span class="chip bg-color">java</span>
                                 </a>
                             
                         </div>
@@ -503,9 +722,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/post/d37fe59d.html">
                     <div class="card-image">
@@ -523,9 +743,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -538,6 +758,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -560,19 +781,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/4a17b156.html">
+                <a href="/post/344c3b7c.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="hexo存在提交github后,xxx.gitHub.io不更新">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">hexo存在提交github后,xxx.gitHub.io不更新</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            hexo存在提交github后,xxx.gitHub.io不更新
                         
                     </div>
                     <div class="publish-info">
@@ -581,11 +802,23 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            FlyCode
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/hexo/" class="post-category">
+                                    hexo
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -658,6 +891,87 @@
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
 
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
