@@ -467,8 +467,8 @@ elementData <span class="token operator">=</span> <span class="token class-name"
 <p>数组+链表+红黑树</p>
 <p>当链表长度大于阈值（8）（将链表转换为红黑树之前会判断当前数组长度是否超过64，没超过就会继续执行扩容）是，会将链表转换为红黑树，减少搜索时间。重点关注treebin()方法</p>
 <p>9ConcurrentHashMap</p>
-<p>1.8 与1.7有很大区别，不再是Segment数组+HashEntry数组+链表，而是采用了Node数组+链表+红黑树。当链表达到一定程度转换为红黑树。</p>
-<p><img src="/post/b4617fdb.htm/img_2.png" alt="img_2.png"><br>​      Node数组链表红黑树</p>
+<p>1.8 与1.7有很大区别，不再是Segment数组+HashEntry数组+链表，而是采用了Node数组+链表+红黑树。当链表达到一定程度转换为红黑树。   </p>
+<p><img src="/post/b4617fdb.htm/img_2.jpg" alt="img_2.png"></p>
 <p>1 初始化</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">initTable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token class-name">Node</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">K</span><span class="token punctuation">,</span><span class="token class-name">V</span><span class="token punctuation">></span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> tab<span class="token punctuation">;</span> <span class="token keyword">int</span> sc<span class="token punctuation">;</span>
