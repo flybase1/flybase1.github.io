@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Mysql面试题-1, FlyCode的个人博客">
-    <meta name="description" content="">
+    <meta name="keywords" content="搭建Stable Diffusion, FlyCode的个人博客">
+    <meta name="description" content="搭建自己的绘图工具Kaggle Stable Diffusion">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Mysql面试题-1 | FlyCode的个人博客</title>
+    <title>搭建Stable Diffusion | FlyCode的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -260,12 +260,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Mysql面试题-1</h1>
+                    <h1 class="description center-align post-title">搭建Stable Diffusion</h1>
                 </div>
             </div>
         </div>
@@ -310,7 +310,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    249
                 </div>
                 
 
@@ -340,7 +340,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="1-为什么要使用Kaggle"><a href="#1-为什么要使用Kaggle" class="headerlink" title="1. 为什么要使用Kaggle"></a>1. 为什么要使用Kaggle</h2><p>优点：提供免费的GPU，每周有30个小时的免费使用，不使用的时候就关闭，完全足够使用<br>缺点：优点难以上手，原本是机器学习竞赛平台等等，需要特殊网络</p>
+<h2 id="2-注册"><a href="#2-注册" class="headerlink" title="2. 注册"></a>2. 注册</h2><p><a target="_blank" rel="noopener" href="https://www.kaggle.com/">https://www.kaggle.com/</a><br>这里可以选择自己需要的方式进行注册</p>
+<h2 id="3-运行模型"><a href="#3-运行模型" class="headerlink" title="3. 运行模型"></a>3. 运行模型</h2><p>在主界面搜索zh-stable-diffusion-webui-kaggle<br>点击右上角Edit My Copy<br>选择右边Notebook options里面有个Get phone verified（手机验证，使用国内的手机可以接受验证码）<br>选择Notebook options的INTERNET，点击开启Internet on<br>点击Notebook options的ACCELERATOR，选择GPU T4✖2<br>点击中间的电源开机键<br>点击左边的三角运行<br>等待部署<br>最后应该能够看见Running on public URL: <a target="_blank" rel="noopener" href="https://538e8529-d008-470d.gradio.live,点击地址运行即可/">https://538e8529-d008-470d.gradio.live，点击地址运行即可</a><br><img src="/post/5b798e2f.htm/img.png" alt="img.png"><br>详情参考 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/635483147">https://zhuanlan.zhihu.com/p/635483147</a><br>个人使用效果地址<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_52843958/article/details/131743019">https://blog.csdn.net/qq_52843958/article/details/131743019</a></p>
+<h2 id="4-谨记"><a href="#4-谨记" class="headerlink" title="4. 谨记"></a>4. 谨记</h2><p>不使用了就关闭</p>
+
                 
             </div>
             <hr/>
@@ -366,7 +370,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://flybase1.github.io/post/29c5c92c.html">http://flybase1.github.io/post/29c5c92c.html</a>
+                    <a href="http://flybase1.github.io/post/5b798e2f.html">http://flybase1.github.io/post/5b798e2f.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -480,9 +484,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/post/5b798e2f.html">
                     <div class="card-image">
@@ -500,9 +505,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -511,6 +516,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -521,19 +527,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/post/dc612634.html">
+                <a href="/post/29c5c92c.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="java面试题基础(5)">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Mysql面试题-1">
                         
-                        <span class="card-title">java面试题基础(5)</span>
+                        <span class="card-title">Mysql面试题-1</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            java面试题基础(5)
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -542,31 +548,11 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/java/" class="post-category">
-                                    java
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            FlyCode
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                        <span class="chip bg-color">面试题</span>
-                    </a>
-                    
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
-                    </a>
-                    
-                    <a href="/tags/IO/">
-                        <span class="chip bg-color">IO</span>
-                    </a>
-                    
                 </div>
                 
             </div>
