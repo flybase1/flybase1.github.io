@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="FlyCode的个人博客">
 <meta property="og:description" content="1. 单链表1. 单链表的建造链表有两个属性，一个就是当前的值val，还有一个就是记录当前节点的下一个节点位置，由此可以写出建造链表的相关代码 123456789101112131415161718192021public class ListNode &amp;#123;    int value;    ListNode next;    public ListNode(int value, List">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/ad00e4834b374f799497264c7c4f2267.png">
+<meta property="og:image" content="http://flybase1.github.io/post/cb83085/img_2.png">
 <meta property="og:image" content="http://cdn.flycode.icu/img/202307161426556.png">
 <meta property="og:image" content="http://cdn.flycode.icu/img/202307161427410.png">
 <meta property="og:image" content="http://cdn.flycode.icu/img/202307161427949.png">
@@ -36,13 +36,13 @@
 <meta property="og:image" content="http://cdn.flycode.icu/img/202307161428221.png">
 <meta property="og:image" content="http://cdn.flycode.icu/img/202307161428069.png">
 <meta property="article:published_time" content="2023-07-16T06:24:33.000Z">
-<meta property="article:modified_time" content="2023-07-16T09:41:06.306Z">
+<meta property="article:modified_time" content="2023-07-16T12:29:31.326Z">
 <meta property="article:author" content="FlyCode">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="链表">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/ad00e4834b374f799497264c7c4f2267.png">
+<meta name="twitter:image" content="http://flybase1.github.io/post/cb83085/img_2.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -301,7 +301,7 @@
                 <h1 id="1-单链表"><a href="#1-单链表" class="headerlink" title="1. 单链表"></a>1. 单链表</h1><h2 id="1-单链表的建造"><a href="#1-单链表的建造" class="headerlink" title="1. 单链表的建造"></a>1. 单链表的建造</h2><p>链表有两个属性，一个就是当前的值val，还有一个就是记录当前节点的下一个节点位置，由此可以写出建造链表的相关代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ListNode</span> &#123;<br>    <span class="hljs-type">int</span> value;<br>    ListNode next;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ListNode</span><span class="hljs-params">(<span class="hljs-type">int</span> value, ListNode next)</span> &#123;<br>        <span class="hljs-built_in">this</span>.value = value;<br>        <span class="hljs-built_in">this</span>.next = next;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ListNode</span><span class="hljs-params">()</span> &#123;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ListNode</span><span class="hljs-params">(<span class="hljs-type">int</span> value)</span> &#123;<br>        <span class="hljs-built_in">this</span>.value = value;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">ListNode</span><span class="hljs-params">(ListNode next)</span> &#123;<br>        <span class="hljs-built_in">this</span>.next = next;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<h2 id="2-链表遍历"><a href="#2-链表遍历" class="headerlink" title="2. 链表遍历"></a>2. 链表遍历</h2><p>链表没有相关属性来记录当前的链表长度，所以只能经过遍历获取链表长度<br><img src="https://img-blog.csdnimg.cn/ad00e4834b374f799497264c7c4f2267.png" srcset="/img/loading.gif" lazyload alt="image-20230716142642227"></p>
+<h2 id="2-链表遍历"><a href="#2-链表遍历" class="headerlink" title="2. 链表遍历"></a>2. 链表遍历</h2><p>链表没有相关属性来记录当前的链表长度，所以只能经过遍历获取链表长度<br><img src="cb83085/img_2.png" srcset="/img/loading.gif" lazyload alt="img_2.png"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getListNodeLength</span><span class="hljs-params">(ListNode head)</span> &#123;<br>       <span class="hljs-type">int</span> <span class="hljs-variable">length</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>       <span class="hljs-type">ListNode</span> <span class="hljs-variable">listNode</span> <span class="hljs-operator">=</span> head;<br>       <span class="hljs-keyword">while</span> (listNode != <span class="hljs-literal">null</span>) &#123;<br>           length++;<br>           listNode = listNode.next;<br>       &#125;<br>       <span class="hljs-keyword">return</span> length;<br>   &#125;<br></code></pre></td></tr></table></figure>
 
 <p>链表展示</p>
