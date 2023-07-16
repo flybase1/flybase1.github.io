@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="FlyCode的个人博客">
 <meta property="og:description" content="1. List，Set，Queue，Map区别 List: 元素存储是有序的，可以重复的。  Set: 元素存储是无序的，不可以重复。  Queue：元素存取满足先进先出顺序，元素可重复，有序。  Map：key-value键值对，key是不可重复的，无序的，但是value可以重复，无序的   2. ArrayList和LinkedList区别 线程安全：两者都不能保证  底层数据结构：Array">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://flybase1.github.io/post/b4617fdb.htm/img_2.jpg">
+<meta property="og:image" content="http://flybase1.github.io/post/img_2.jpg">
 <meta property="article:published_time" content="2023-07-12T04:33:36.000Z">
 <meta property="article:modified_time" content="2023-07-15T12:56:57.354Z">
 <meta property="article:author" content="FlyCode">
@@ -31,7 +31,7 @@
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="集合">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://flybase1.github.io/post/b4617fdb.htm/img_2.jpg">
+<meta name="twitter:image" content="http://flybase1.github.io/post/img_2.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -380,7 +380,7 @@
 <p>当链表长度大于阈值（8）（将链表转换为红黑树之前会判断当前数组长度是否超过64，没超过就会继续执行扩容）是，会将链表转换为红黑树，减少搜索时间。重点关注treebin()方法</p>
 <p>9ConcurrentHashMap</p>
 <p>1.8 与1.7有很大区别，不再是Segment数组+HashEntry数组+链表，而是采用了Node数组+链表+红黑树。当链表达到一定程度转换为红黑树。   </p>
-<p><img src="/post/b4617fdb.htm/img_2.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><img src="img_2.jpg" srcset="/img/loading.gif" lazyload></p>
 <p>1 初始化</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Node&lt;K,V&gt;[] initTable() &#123;<br>    Node&lt;K,V&gt;[] tab; <span class="hljs-type">int</span> sc;<br>    <span class="hljs-keyword">while</span> ((tab = table) == <span class="hljs-literal">null</span> || tab.length == <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">if</span> ((sc = sizeCtl) &lt; <span class="hljs-number">0</span>)<br>            <span class="hljs-comment">// 如果sizeCtl&lt;0 表示另一个线程执行CAS成功，正在进行初化</span><br>            <br>            Thread.<span class="hljs-keyword">yield</span>(); <span class="hljs-comment">// lost initialization race; just spin</span><br>            <span class="hljs-comment">// 让出CPU使用权</span><br>            <br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (U.compareAndSwapInt(<span class="hljs-built_in">this</span>, SIZECTL, sc, -<span class="hljs-number">1</span>)) &#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                <span class="hljs-keyword">if</span> ((tab = table) == <span class="hljs-literal">null</span> || tab.length == <span class="hljs-number">0</span>) &#123;<br>                    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> (sc &gt; <span class="hljs-number">0</span>) ? sc : DEFAULT_CAPACITY;<br>                    <span class="hljs-meta">@SuppressWarnings(&quot;unchecked&quot;)</span><br>                    Node&lt;K,V&gt;[] nt = (Node&lt;K,V&gt;[])<span class="hljs-keyword">new</span> <span class="hljs-title class_">Node</span>&lt;?,?&gt;[n];<br>                    table = tab = nt;<br>                    sc = n - (n &gt;&gt;&gt; <span class="hljs-number">2</span>);<br>                &#125;<br>            &#125; <span class="hljs-keyword">finally</span> &#123;<br>                sizeCtl = sc;<br>            &#125;<br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> tab;<br>&#125;<br></code></pre></td></tr></table></figure>
 
