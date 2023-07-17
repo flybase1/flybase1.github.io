@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>ChatGpt+Vercel无需服务器部署</title>
+      <link href="/post/b2dd429d.html"/>
+      <url>/post/b2dd429d.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="ChatGPT-Next-Web"><a href="#ChatGPT-Next-Web" class="headerlink" title="ChatGPT-Next-Web"></a>ChatGPT-Next-Web</h1><p>开源项目，跨平台无需服务器就可部署自己的gpt网页端口<br>地址<a href="https://github.com/Yidadaa/ChatGPT-Next-Web">https://github.com/Yidadaa/ChatGPT-Next-Web</a></p><h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><ol><li>一键部署</li><li>兼容各个系统</li><li>数据存储本地</li><li>支持markdown</li><li>支持自定义</li></ol><h1 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h1><ol><li>拥有vercel账号<br> 注册地址  <a href="https://vercel.com/dashboard%EF%BC%8C%E7%BB%91%E5%AE%9Agithub%E8%B4%A6%E5%8F%B7">https://vercel.com/dashboard，绑定github账号</a></li><li>拥有gpt账号<br>需要使用gpt的key</li><li>将ChatGPT-Next-Web  fork到自己的github仓库</li></ol><h1 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h1><ol><li>gpt的key获取<br>官网地址<a href="https://platform.openai.com/account/api-keys">https://platform.openai.com/account/api-keys</a><br><img src="/images/gptv-1.png" alt="img.png"><br>点击创建新的key<br><img src="/images/gptv-2.png" alt="img.png"><br>保存好这个key</li><li>vercel部署<br>主界面<img src="/images/gptv-3.png" alt="img.png"><br>点击Add new Project创建新项目<br>找到自己之前的fork项目,点击import<br><img src="/images/gptv-4.png" alt="img.png"></li></ol><p>下拉找到Environment Variables<br><img src="/images/gptv-5.png" alt="img.png"><br>第一个填入OPENAI_API_KEY<br>第二个填入自己的gpt的key</p><p>新建一个CODE<br>第二个填入你需要的密码，长度大于7位，小心爆破<br>这个也可以部署好后在environments里面修改</p><p>点击部署，等待<br><img src="/images/gptv-6.png" alt="img.png"></p><ol start="3"><li><p>部署成功<br><img src="/images/gptv-7.png" alt="img.png"></p></li><li><p>去往自己的gpt<br>点击continue<br><img src="/images/gptv-8.png" alt="img.png"><br>里面的domain就是自己的域名地址，点击就能进入<br><img src="/images/gptv-9.png" alt="img.png"></p></li><li><p>配置域名<br>点击右上角的domain可以配置自己的域名<br><img src="/images/gptv-10.png" alt="img.png"></p></li></ol><h1 id="但是由于我的gpt是免费的，所以这里会显示余额不足，大家打着玩玩就行"><a href="#但是由于我的gpt是免费的，所以这里会显示余额不足，大家打着玩玩就行" class="headerlink" title="但是由于我的gpt是免费的，所以这里会显示余额不足，大家打着玩玩就行"></a>但是由于我的gpt是免费的，所以这里会显示余额不足，大家打着玩玩就行</h1><p><img src="/source/images/gptv-11.png" alt="img.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> AI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> AI </tag>
+            
+            <tag> 部署 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>算法通关村第一关——链表经典问题之两个链表的第一个公共节点笔记</title>
       <link href="/post/68997616.html"/>
       <url>/post/68997616.html</url>
