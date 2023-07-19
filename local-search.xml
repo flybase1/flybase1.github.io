@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Redis面试题-1</title>
+    <link href="/post/d36837b5.html"/>
+    <url>/post/d36837b5.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-为什么要用redis做缓存"><a href="#1-为什么要用redis做缓存" class="headerlink" title="1. 为什么要用redis做缓存"></a>1. 为什么要用redis做缓存</h1><ol><li>高性能：缓存获取数据</li><li>高并发：部分请求到缓存而不是数据库</li></ol><h1 id="2-Redis除了做缓存还能做什么"><a href="#2-Redis除了做缓存还能做什么" class="headerlink" title="2. Redis除了做缓存还能做什么"></a>2. Redis除了做缓存还能做什么</h1><ol><li>分布式锁</li><li>限流</li><li>消息队列</li><li>分布式session</li><li>延时队列</li></ol><h1 id="3-分布式缓存常见方案"><a href="#3-分布式缓存常见方案" class="headerlink" title="3. 分布式缓存常见方案"></a>3. 分布式缓存常见方案</h1><p>Memcached和redis<br>区别：</p><ol><li>redis提供更加丰富的数据类型</li><li>redis支持持久化，内存的数据结构存放在硬盘中，重启时候加载使用，mamcached数据存放内存</li><li>redis灾难恢复机制</li><li>redis服务器内存使用完了，可以将不用的数据放在磁盘上，memcached会报异常</li><li>redis支持集群，memcached没有原生集群</li><li>redis单线程多路复用，memcached多线程，非阻塞Io</li><li>redis支持发布订阅，lua脚本，事务等等</li></ol><h1 id="4-Redis常见的数据结构"><a href="#4-Redis常见的数据结构" class="headerlink" title="4. Redis常见的数据结构"></a>4. Redis常见的数据结构</h1><p>5种基础数据类型：String,List,Set,Hash,ZSet<br>3种特殊数据结构：HyperLogLogs（基数统计）Bitmap （位存储） Geospatial （地理位置）</p><h1 id="5-RDB"><a href="#5-RDB" class="headerlink" title="5. RDB"></a>5. RDB</h1><h2 id="5-1-什么是RDB持久化"><a href="#5-1-什么是RDB持久化" class="headerlink" title="5.1 什么是RDB持久化"></a>5.1 什么是RDB持久化</h2><p>Redis可以通过创建快照来获取存储在内存里面某个数据某个时间点上的副本。<br>Redis创建快照之后，可以对快照进行备份，可以复制到其他服务器创建具有相同数据的服务器副本。<br>快照持久化是 Redis 默认采用的持久化方式。</p><h1 id="5-2-RDB创建快照会阻塞主线程吗？"><a href="#5-2-RDB创建快照会阻塞主线程吗？" class="headerlink" title="5.2 RDB创建快照会阻塞主线程吗？"></a>5.2 RDB创建快照会阻塞主线程吗？</h1><p>dis提供两个方法</p><ul><li>save: 同步进行，会阻塞</li><li>bgsave：会fork创建一个子线程，子线程执行，不会阻塞，默认</li></ul><h1 id="6-AOF"><a href="#6-AOF" class="headerlink" title="6. AOF"></a>6. AOF</h1><h2 id="6-1-什么是AOF持久化"><a href="#6-1-什么是AOF持久化" class="headerlink" title="6.1 什么是AOF持久化"></a>6.1 什么是AOF持久化</h2><p>实时性比RDB好，开启AOF持久化每次执行一条会更改redis里面数据的命令,都会将该命令写入AOF缓冲区，然后再写入AOF文件（此时还在系统内核缓存区未同步到磁盘），最后根据持久化方式(fsync策略)配置来决定何时将系统内核缓存区的数据同步到硬盘中去</p><h2 id="6-2-AOF工作流程"><a href="#6-2-AOF工作流程" class="headerlink" title="6.2 AOF工作流程"></a>6.2 AOF工作流程</h2><ol><li>命令追加：将所有的写命令都写入AOF缓冲区</li><li>文件写入：将AOF缓冲区数据写入AOF文件（此时未将数据同步到硬盘）</li><li>文件同步：根据相应的持久化方式决定何时将内核里面的缓冲区数据同步到硬盘。</li><li>文件重写：AOF数据量大了之后，需要定期重写，达到压缩目的。</li><li>文件重载：当redis重启，加载AOF文件数据恢复</li></ol><h2 id="6-3-AOF持久化方式策略"><a href="#6-3-AOF持久化方式策略" class="headerlink" title="6.3 AOF持久化方式策略"></a>6.3 AOF持久化方式策略</h2><ol><li>appendfsync always：主进程调用write后，后台线程会立即调用AOF文件同步，完成后返回，（消耗性能）</li><li>appendfsync everysec：每秒钟调用 fsync 函数（系统调用）同步一次 AOF 文件</li><li>appendfsync no： 操作系统自己决定何时调用同步AOF文件</li></ol><h2 id="6-4-AOF为什么执行完命令后记录日志"><a href="#6-4-AOF为什么执行完命令后记录日志" class="headerlink" title="6.4 AOF为什么执行完命令后记录日志"></a>6.4 AOF为什么执行完命令后记录日志</h2><ol><li>节省开销，避免对语法进行检查</li><li>避免阻塞当前命令执行的线程</li></ol><p>缺点:</p><ol><li>刚执行完redis命令，redis就宕机了会导致数据丢失</li><li>阻塞后续其他命令的执行。</li></ol><h2 id="6-5-AOF重写了解吗"><a href="#6-5-AOF重写了解吗" class="headerlink" title="6.5 AOF重写了解吗"></a>6.5 AOF重写了解吗</h2><p>当AOF变得太大的时候，Redis会在后台自动重写产生一个新的ROF文件，这个AOF文件和原有的AOF文件保存的数据状态一样，但是体积更小。</p><h2 id="6-6-AOF校验校验机制了解吗"><a href="#6-6-AOF校验校验机制了解吗" class="headerlink" title="6.6 AOF校验校验机制了解吗"></a>6.6 AOF校验校验机制了解吗</h2><p>Redis启动时会对AOF文件文件检查，判断文件是否完整，是否损坏丢失数据。<br>主要是通过校验和（对整个 AOF 文件内容进行 CRC64 算法计算得出的数字）验证，如果文件发生改变，这个也会改变，会判断校验和和AOF文件末尾的校验和是否一致。</p><h2 id="6-7-如何选择RDB和AOF"><a href="#6-7-如何选择RDB和AOF" class="headerlink" title="6.7 如何选择RDB和AOF"></a>6.7 如何选择RDB和AOF</h2><p>RDB优点：</p><ol><li>存储的是经过压缩的二进制文件，文件占用小，适合数据备份，灾难恢复。AOF存储每一次的写命令，文件大</li><li>RBD恢复文件，只需要解析还原数据即可，不需要一条一条执行命令，速度快。AOF依赖每次的执行命令，速度慢。</li></ol><p>AOF优点：</p><ol><li>安全性好，实时持久化数据。RDB文件生成过程比较繁重，而AOF是直接追加到AOF文件里面去。</li><li>AOF易于理解和解析所有的日志。</li></ol><h1 id="7-Redis线程模型"><a href="#7-Redis线程模型" class="headerlink" title="7. Redis线程模型"></a>7. Redis线程模型</h1><h2 id="7-1-Redis单线程模型-单线程怎么监听大量客户的连接"><a href="#7-1-Redis单线程模型-单线程怎么监听大量客户的连接" class="headerlink" title="7.1 Redis单线程模型&#x2F;单线程怎么监听大量客户的连接"></a>7.1 Redis单线程模型&#x2F;单线程怎么监听大量客户的连接</h2><p>redis通过IO多路复用程序来见监听来自客户端的大量连接<br>好处是不需要创建多个线程监听大量用户，降低资源消耗</p><h2 id="7-2-Redis-6之前为什么不使用多线程"><a href="#7-2-Redis-6之前为什么不使用多线程" class="headerlink" title="7.2 Redis 6之前为什么不使用多线程"></a>7.2 Redis 6之前为什么不使用多线程</h2><ol><li>单线程管理容易维护。</li><li>redis性能主要在于内存和网络</li><li>多线程存在死锁，影响性能</li></ol><h2 id="7-3-Redis-6之后为什么引入多线程"><a href="#7-3-Redis-6之后为什么引入多线程" class="headerlink" title="7.3 Redis 6之后为什么引入多线程"></a>7.3 Redis 6之后为什么引入多线程</h2><p>提高网络IO读写性能</p><h1 id="8-Redis内存管理"><a href="#8-Redis内存管理" class="headerlink" title="8. Redis内存管理"></a>8. Redis内存管理</h1><h2 id="8-1-Redis给缓存数据设置过期时间的作用？"><a href="#8-1-Redis给缓存数据设置过期时间的作用？" class="headerlink" title="8.1 Redis给缓存数据设置过期时间的作用？"></a>8.1 Redis给缓存数据设置过期时间的作用？</h2><p>内存是有限的，不能缓存数据不能一直存在</p><h2 id="8-2-Redis如何判断数据是否过期"><a href="#8-2-Redis如何判断数据是否过期" class="headerlink" title="8.2 Redis如何判断数据是否过期"></a>8.2 Redis如何判断数据是否过期</h2><p>过期字典保存过期时间</p><h2 id="8-3-过期数据的删除策略方式"><a href="#8-3-过期数据的删除策略方式" class="headerlink" title="8.3 过期数据的删除策略方式"></a>8.3 过期数据的删除策略方式</h2><ol><li>惰性删除：只有取出Key的时候进行过期判断</li><li>定时删除： 每过一段时间取出过期的key删除。</li></ol><h2 id="8-4-Redis内存淘汰机制（8种）"><a href="#8-4-Redis内存淘汰机制（8种）" class="headerlink" title="8.4 Redis内存淘汰机制（8种）"></a>8.4 Redis内存淘汰机制（8种）</h2><p>MySQL 里有 2000w 数据，Redis 中只存 20w 的数据，如何保证 Redis 中的数据都是热点数据?</p><ol><li>volatile-lru： 从已设置过期时间的数据集中种挑选最少使用的淘汰</li><li>volatile-ttl： 从已设置过期时间的数据集中挑选要过期的数据淘汰</li><li>volatile-random：从已设置过期时间的数据集中任意挑选数据淘汰</li><li>allkeys-lru：内存不足以写入新数据，淘汰最少使用的（常用）</li><li>allkeys-random：从数据集中任选数据淘汰。</li><li>no-eviction：内存不足时不允许写入</li><li>volatile-lfu：从已设置过期时间的数据集中挑选最不经常使用的数据淘汰</li><li>allkeys-lfu：内存不足以写入新数据，移除补偿使用的key</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>redis</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试题</tag>
+      
+      <tag>redis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>算法通关村第一关——链表经典问题之合并有序链表笔记</title>
     <link href="/post/3f07837f.html"/>
     <url>/post/3f07837f.html</url>

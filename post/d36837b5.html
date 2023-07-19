@@ -1,0 +1,764 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="FlyCode">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. 为什么要用redis做缓存 高性能：缓存获取数据 高并发：部分请求到缓存而不是数据库  2. Redis除了做缓存还能做什么 分布式锁 限流 消息队列 分布式session 延时队列  3. 分布式缓存常见方案Memcached和redis区别：  redis提供更加丰富的数据类型 redis支持持久化，内存的数据结构存放在硬盘中，重启时候加载使用，mamcached数据存放内存 redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis面试题-1">
+<meta property="og:url" content="http://flybase1.github.io/post/d36837b5.html">
+<meta property="og:site_name" content="FlyCode的个人博客">
+<meta property="og:description" content="1. 为什么要用redis做缓存 高性能：缓存获取数据 高并发：部分请求到缓存而不是数据库  2. Redis除了做缓存还能做什么 分布式锁 限流 消息队列 分布式session 延时队列  3. 分布式缓存常见方案Memcached和redis区别：  redis提供更加丰富的数据类型 redis支持持久化，内存的数据结构存放在硬盘中，重启时候加载使用，mamcached数据存放内存 redis">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-19T06:27:59.000Z">
+<meta property="article:modified_time" content="2023-07-19T06:46:02.656Z">
+<meta property="article:author" content="FlyCode">
+<meta property="article:tag" content="面试题">
+<meta property="article:tag" content="redis">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Redis面试题-1 - FlyCode的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"flybase1.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fly Code的个人博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Redis面试题-1"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-19 14:27" pubdate>
+          2023年7月19日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Redis面试题-1</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-为什么要用redis做缓存"><a href="#1-为什么要用redis做缓存" class="headerlink" title="1. 为什么要用redis做缓存"></a>1. 为什么要用redis做缓存</h1><ol>
+<li>高性能：缓存获取数据</li>
+<li>高并发：部分请求到缓存而不是数据库</li>
+</ol>
+<h1 id="2-Redis除了做缓存还能做什么"><a href="#2-Redis除了做缓存还能做什么" class="headerlink" title="2. Redis除了做缓存还能做什么"></a>2. Redis除了做缓存还能做什么</h1><ol>
+<li>分布式锁</li>
+<li>限流</li>
+<li>消息队列</li>
+<li>分布式session</li>
+<li>延时队列</li>
+</ol>
+<h1 id="3-分布式缓存常见方案"><a href="#3-分布式缓存常见方案" class="headerlink" title="3. 分布式缓存常见方案"></a>3. 分布式缓存常见方案</h1><p>Memcached和redis<br>区别：</p>
+<ol>
+<li>redis提供更加丰富的数据类型</li>
+<li>redis支持持久化，内存的数据结构存放在硬盘中，重启时候加载使用，mamcached数据存放内存</li>
+<li>redis灾难恢复机制</li>
+<li>redis服务器内存使用完了，可以将不用的数据放在磁盘上，memcached会报异常</li>
+<li>redis支持集群，memcached没有原生集群</li>
+<li>redis单线程多路复用，memcached多线程，非阻塞Io</li>
+<li>redis支持发布订阅，lua脚本，事务等等</li>
+</ol>
+<h1 id="4-Redis常见的数据结构"><a href="#4-Redis常见的数据结构" class="headerlink" title="4. Redis常见的数据结构"></a>4. Redis常见的数据结构</h1><p>5种基础数据类型：String,List,Set,Hash,ZSet<br>3种特殊数据结构：HyperLogLogs（基数统计）Bitmap （位存储） Geospatial （地理位置）</p>
+<h1 id="5-RDB"><a href="#5-RDB" class="headerlink" title="5. RDB"></a>5. RDB</h1><h2 id="5-1-什么是RDB持久化"><a href="#5-1-什么是RDB持久化" class="headerlink" title="5.1 什么是RDB持久化"></a>5.1 什么是RDB持久化</h2><p>Redis可以通过创建快照来获取存储在内存里面某个数据某个时间点上的副本。<br>Redis创建快照之后，可以对快照进行备份，可以复制到其他服务器创建具有相同数据的服务器副本。<br>快照持久化是 Redis 默认采用的持久化方式。</p>
+<h1 id="5-2-RDB创建快照会阻塞主线程吗？"><a href="#5-2-RDB创建快照会阻塞主线程吗？" class="headerlink" title="5.2 RDB创建快照会阻塞主线程吗？"></a>5.2 RDB创建快照会阻塞主线程吗？</h1><p>dis提供两个方法</p>
+<ul>
+<li>save: 同步进行，会阻塞</li>
+<li>bgsave：会fork创建一个子线程，子线程执行，不会阻塞，默认</li>
+</ul>
+<h1 id="6-AOF"><a href="#6-AOF" class="headerlink" title="6. AOF"></a>6. AOF</h1><h2 id="6-1-什么是AOF持久化"><a href="#6-1-什么是AOF持久化" class="headerlink" title="6.1 什么是AOF持久化"></a>6.1 什么是AOF持久化</h2><p>实时性比RDB好，开启AOF持久化每次执行一条会更改redis里面数据的命令,都会将该命令写入AOF缓冲区，然后再写入AOF文件（此时还在系统内核缓存区未同步到磁盘），最后根据持久化方式(fsync策略)配置来决定何时将系统内核缓存区的数据同步到硬盘中去</p>
+<h2 id="6-2-AOF工作流程"><a href="#6-2-AOF工作流程" class="headerlink" title="6.2 AOF工作流程"></a>6.2 AOF工作流程</h2><ol>
+<li>命令追加：将所有的写命令都写入AOF缓冲区</li>
+<li>文件写入：将AOF缓冲区数据写入AOF文件（此时未将数据同步到硬盘）</li>
+<li>文件同步：根据相应的持久化方式决定何时将内核里面的缓冲区数据同步到硬盘。</li>
+<li>文件重写：AOF数据量大了之后，需要定期重写，达到压缩目的。</li>
+<li>文件重载：当redis重启，加载AOF文件数据恢复</li>
+</ol>
+<h2 id="6-3-AOF持久化方式策略"><a href="#6-3-AOF持久化方式策略" class="headerlink" title="6.3 AOF持久化方式策略"></a>6.3 AOF持久化方式策略</h2><ol>
+<li>appendfsync always：主进程调用write后，后台线程会立即调用AOF文件同步，完成后返回，（消耗性能）</li>
+<li>appendfsync everysec：每秒钟调用 fsync 函数（系统调用）同步一次 AOF 文件</li>
+<li>appendfsync no： 操作系统自己决定何时调用同步AOF文件</li>
+</ol>
+<h2 id="6-4-AOF为什么执行完命令后记录日志"><a href="#6-4-AOF为什么执行完命令后记录日志" class="headerlink" title="6.4 AOF为什么执行完命令后记录日志"></a>6.4 AOF为什么执行完命令后记录日志</h2><ol>
+<li>节省开销，避免对语法进行检查</li>
+<li>避免阻塞当前命令执行的线程</li>
+</ol>
+<p>缺点:</p>
+<ol>
+<li>刚执行完redis命令，redis就宕机了会导致数据丢失</li>
+<li>阻塞后续其他命令的执行。</li>
+</ol>
+<h2 id="6-5-AOF重写了解吗"><a href="#6-5-AOF重写了解吗" class="headerlink" title="6.5 AOF重写了解吗"></a>6.5 AOF重写了解吗</h2><p>当AOF变得太大的时候，Redis会在后台自动重写产生一个新的ROF文件，这个AOF文件和原有的AOF文件保存的数据状态一样，但是体积更小。</p>
+<h2 id="6-6-AOF校验校验机制了解吗"><a href="#6-6-AOF校验校验机制了解吗" class="headerlink" title="6.6 AOF校验校验机制了解吗"></a>6.6 AOF校验校验机制了解吗</h2><p>Redis启动时会对AOF文件文件检查，判断文件是否完整，是否损坏丢失数据。<br>主要是通过校验和（对整个 AOF 文件内容进行 CRC64 算法计算得出的数字）验证，如果文件发生改变，这个也会改变，会判断校验和和AOF文件末尾的校验和是否一致。</p>
+<h2 id="6-7-如何选择RDB和AOF"><a href="#6-7-如何选择RDB和AOF" class="headerlink" title="6.7 如何选择RDB和AOF"></a>6.7 如何选择RDB和AOF</h2><p>RDB优点：</p>
+<ol>
+<li>存储的是经过压缩的二进制文件，文件占用小，适合数据备份，灾难恢复。AOF存储每一次的写命令，文件大</li>
+<li>RBD恢复文件，只需要解析还原数据即可，不需要一条一条执行命令，速度快。AOF依赖每次的执行命令，速度慢。</li>
+</ol>
+<p>AOF优点：</p>
+<ol>
+<li>安全性好，实时持久化数据。RDB文件生成过程比较繁重，而AOF是直接追加到AOF文件里面去。</li>
+<li>AOF易于理解和解析所有的日志。</li>
+</ol>
+<h1 id="7-Redis线程模型"><a href="#7-Redis线程模型" class="headerlink" title="7. Redis线程模型"></a>7. Redis线程模型</h1><h2 id="7-1-Redis单线程模型-单线程怎么监听大量客户的连接"><a href="#7-1-Redis单线程模型-单线程怎么监听大量客户的连接" class="headerlink" title="7.1 Redis单线程模型&#x2F;单线程怎么监听大量客户的连接"></a>7.1 Redis单线程模型&#x2F;单线程怎么监听大量客户的连接</h2><p>redis通过IO多路复用程序来见监听来自客户端的大量连接<br>好处是不需要创建多个线程监听大量用户，降低资源消耗</p>
+<h2 id="7-2-Redis-6之前为什么不使用多线程"><a href="#7-2-Redis-6之前为什么不使用多线程" class="headerlink" title="7.2 Redis 6之前为什么不使用多线程"></a>7.2 Redis 6之前为什么不使用多线程</h2><ol>
+<li>单线程管理容易维护。</li>
+<li>redis性能主要在于内存和网络</li>
+<li>多线程存在死锁，影响性能</li>
+</ol>
+<h2 id="7-3-Redis-6之后为什么引入多线程"><a href="#7-3-Redis-6之后为什么引入多线程" class="headerlink" title="7.3 Redis 6之后为什么引入多线程"></a>7.3 Redis 6之后为什么引入多线程</h2><p>提高网络IO读写性能</p>
+<h1 id="8-Redis内存管理"><a href="#8-Redis内存管理" class="headerlink" title="8. Redis内存管理"></a>8. Redis内存管理</h1><h2 id="8-1-Redis给缓存数据设置过期时间的作用？"><a href="#8-1-Redis给缓存数据设置过期时间的作用？" class="headerlink" title="8.1 Redis给缓存数据设置过期时间的作用？"></a>8.1 Redis给缓存数据设置过期时间的作用？</h2><p>内存是有限的，不能缓存数据不能一直存在</p>
+<h2 id="8-2-Redis如何判断数据是否过期"><a href="#8-2-Redis如何判断数据是否过期" class="headerlink" title="8.2 Redis如何判断数据是否过期"></a>8.2 Redis如何判断数据是否过期</h2><p>过期字典保存过期时间</p>
+<h2 id="8-3-过期数据的删除策略方式"><a href="#8-3-过期数据的删除策略方式" class="headerlink" title="8.3 过期数据的删除策略方式"></a>8.3 过期数据的删除策略方式</h2><ol>
+<li>惰性删除：只有取出Key的时候进行过期判断</li>
+<li>定时删除： 每过一段时间取出过期的key删除。</li>
+</ol>
+<h2 id="8-4-Redis内存淘汰机制（8种）"><a href="#8-4-Redis内存淘汰机制（8种）" class="headerlink" title="8.4 Redis内存淘汰机制（8种）"></a>8.4 Redis内存淘汰机制（8种）</h2><p>MySQL 里有 2000w 数据，Redis 中只存 20w 的数据，如何保证 Redis 中的数据都是热点数据?</p>
+<ol>
+<li>volatile-lru： 从已设置过期时间的数据集中种挑选最少使用的淘汰</li>
+<li>volatile-ttl： 从已设置过期时间的数据集中挑选要过期的数据淘汰</li>
+<li>volatile-random：从已设置过期时间的数据集中任意挑选数据淘汰</li>
+<li>allkeys-lru：内存不足以写入新数据，淘汰最少使用的（常用）</li>
+<li>allkeys-random：从数据集中任选数据淘汰。</li>
+<li>no-eviction：内存不足时不允许写入</li>
+<li>volatile-lfu：从已设置过期时间的数据集中挑选最不经常使用的数据淘汰</li>
+<li>allkeys-lfu：内存不足以写入新数据，移除补偿使用的key</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/redis/" class="category-chain-item">redis</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="print-no-link">#面试题</a>
+      
+        <a href="/tags/redis/" class="print-no-link">#redis</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Redis面试题-1</div>
+      <div>http://flybase1.github.io/post/d36837b5.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>FlyCode</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月19日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/3f07837f.html" title="算法通关村第一关——链表经典问题之合并有序链表笔记">
+                        <span class="hidden-mobile">算法通关村第一关——链表经典问题之合并有序链表笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
