@@ -16,25 +16,31 @@
   <meta name="author" content="FlyCode">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. Redis事务1.1 什么是redis事务？可以将一个或者多个命令请求打包处理，然后再按顺序执行打包的所有命令，并且不会被中途打断。(不建议使用) 1.2 如何使用redis事务redis可以通过使用multi，exec，discard，watchmulti:  输入多个命令放入队列exec:  执行命令discard：取消事务,清空队列里面的命令watch：watch监听指定的key，当被">
+    <meta name="description" content="1. 反转链表给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。 2. 分析2.1 如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。画图流程完整图 1234567891011public ListNode reverseList(ListNode he">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis面试题-2">
-<meta property="og:url" content="http://flybase1.github.io/post/4a61660f.html">
+<meta property="og:title" content="算法通关村第二关——终于学会链表反转了">
+<meta property="og:url" content="http://flybase1.github.io/post/e58bcd03.html">
 <meta property="og:site_name" content="FlyCode的个人博客">
-<meta property="og:description" content="1. Redis事务1.1 什么是redis事务？可以将一个或者多个命令请求打包处理，然后再按顺序执行打包的所有命令，并且不会被中途打断。(不建议使用) 1.2 如何使用redis事务redis可以通过使用multi，exec，discard，watchmulti:  输入多个命令放入队列exec:  执行命令discard：取消事务,清空队列里面的命令watch：watch监听指定的key，当被">
+<meta property="og:description" content="1. 反转链表给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。 2. 分析2.1 如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。画图流程完整图 1234567891011public ListNode reverseList(ListNode he">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-20T07:40:30.000Z">
-<meta property="article:modified_time" content="2023-07-20T08:07:15.989Z">
+<meta property="og:image" content="http://flybase1.github.io/images/xhlbfz-1.png">
+<meta property="og:image" content="http://flybase1.github.io/images/xhlbfz-2.png">
+<meta property="og:image" content="http://flybase1.github.io/images/xhlbfz-3.png">
+<meta property="og:image" content="http://flybase1.github.io/images/xhlbfz-4.png">
+<meta property="og:image" content="http://flybase1.github.io/images/xhlbfz-5.png">
+<meta property="article:published_time" content="2023-07-20T09:01:18.000Z">
+<meta property="article:modified_time" content="2023-07-20T09:04:54.012Z">
 <meta property="article:author" content="FlyCode">
-<meta property="article:tag" content="面试题">
-<meta property="article:tag" content="redis">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="链表">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://flybase1.github.io/images/xhlbfz-1.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Redis面试题-2 - FlyCode的个人博客</title>
+  <title>算法通关村第二关——终于学会链表反转了 - FlyCode的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +206,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Redis面试题-2"></span>
+            <span id="subtitle" data-typed-text="算法通关村第二关——终于学会链表反转了"></span>
           
         </div>
 
@@ -211,7 +217,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-20 15:40" pubdate>
+        <time datetime="2023-07-20 17:01" pubdate>
           2023年7月20日 下午
         </time>
       </span>
@@ -223,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          1.2k 字
         
       </span>
     
@@ -234,7 +240,7 @@
         
         
         
-          21 分钟
+          10 分钟
         
       </span>
     
@@ -279,111 +285,25 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Redis面试题-2</h1>
+            <h1 id="seo-header">算法通关村第二关——终于学会链表反转了</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="1-Redis事务"><a href="#1-Redis事务" class="headerlink" title="1. Redis事务"></a>1. Redis事务</h1><h2 id="1-1-什么是redis事务？"><a href="#1-1-什么是redis事务？" class="headerlink" title="1.1 什么是redis事务？"></a>1.1 什么是redis事务？</h2><p>可以将一个或者多个命令请求打包处理，然后再按顺序执行打包的所有命令，并且不会被中途打断。(不建议使用)</p>
-<h2 id="1-2-如何使用redis事务"><a href="#1-2-如何使用redis事务" class="headerlink" title="1.2 如何使用redis事务"></a>1.2 如何使用redis事务</h2><p>redis可以通过使用multi，exec，discard，watch<br>multi:  输入多个命令放入队列<br>exec:  执行命令<br>discard：取消事务,清空队列里面的命令<br>watch：watch监听指定的key，当被监听的key被修改了，整个事务都不会执行</p>
-<h2 id="1-3Redis事务支持原子性吗？"><a href="#1-3Redis事务支持原子性吗？" class="headerlink" title="1.3Redis事务支持原子性吗？"></a>1.3Redis事务支持原子性吗？</h2><p>事务四大特性：原子性，一致性，隔离性，持久性<br>redis事务只有在运行错误的时候会弹出报错，其他命令都能执行，而且不支持事务回滚，是不满足事务的原子性的。</p>
-<h2 id="1-4-Redis事务支持久化吗？"><a href="#1-4-Redis事务支持久化吗？" class="headerlink" title="1.4 Redis事务支持久化吗？"></a>1.4 Redis事务支持久化吗？</h2><p>Redis持久化方式</p>
-<ol>
-<li>RDB</li>
-<li>AOF</li>
-<li>RDB+AOF</li>
-</ol>
-<p>而AOF相应的持久化策略里面只有appendfsync always能够基本满足要求，但是性能太低，而sec，no两者都会存在数据丢失，没办法保证持久性。</p>
-<h2 id="1-5-Redis事务还有哪些缺陷"><a href="#1-5-Redis事务还有哪些缺陷" class="headerlink" title="1.5 Redis事务还有哪些缺陷"></a>1.5 Redis事务还有哪些缺陷</h2><p>除了原子性，持久性不满足，每条命令都需要与服务器进行交互，浪费资源，不能批量执行</p>
-<h2 id="1-6-如何解决Redis事务的缺陷？"><a href="#1-6-如何解决Redis事务的缺陷？" class="headerlink" title="1.6 如何解决Redis事务的缺陷？"></a>1.6 如何解决Redis事务的缺陷？</h2><p>采用lua脚本，可以一次性执行多个redis命令，减少资源消耗，但是需要保证lua脚本里面的语法都是对的，如果有语法错误，不会有回滚，也是不满足原子性的要求。<br>采用redis functions（比lua脚本更强大）</p>
-<h1 id="2-Redis性能优化"><a href="#2-Redis性能优化" class="headerlink" title="2.Redis性能优化"></a>2.Redis性能优化</h1><h2 id="2-1-使用批量操作减少网络传输"><a href="#2-1-使用批量操作减少网络传输" class="headerlink" title="2.1 使用批量操作减少网络传输"></a>2.1 使用批量操作减少网络传输</h2><h2 id="2-2-大量的key集中过期的问题"><a href="#2-2-大量的key集中过期的问题" class="headerlink" title="2.2 大量的key集中过期的问题"></a>2.2 大量的key集中过期的问题</h2><p>redis一般采取定期删除+惰性删除<br>但是遇到大量的key集中过期，客户端需要等待将这些过期key完全删除才能进行下一步操作，这个任务是在主线程中。</p>
-<h2 id="2-3-Redis-BigKey（了解）"><a href="#2-3-Redis-BigKey（了解）" class="headerlink" title="2.3 Redis BigKey（了解）"></a>2.3 Redis BigKey（了解）</h2><h3 id="2-3-1-什么是BigKey？有什么危害？"><a href="#2-3-1-什么是BigKey？有什么危害？" class="headerlink" title="2.3.1 什么是BigKey？有什么危害？"></a>2.3.1 什么是BigKey？有什么危害？</h3><p>一个key对应的value越大，内存占用越大。bigkek会消耗内存，影响性能。</p>
-<h3 id="2-3-2-如何处理bigkey"><a href="#2-3-2-如何处理bigkey" class="headerlink" title="2.3.2 如何处理bigkey"></a>2.3.2 如何处理bigkey</h3><ol>
-<li>分割bigkey</li>
-<li>手动清理</li>
-<li>采用合适数据结构</li>
-<li>开启lazy_free</li>
-</ol>
-<h1 id="3-Redis内存碎片"><a href="#3-Redis内存碎片" class="headerlink" title="3. Redis内存碎片"></a>3. Redis内存碎片</h1><h2 id="3-1-什么是内存碎片？为什么会有redis内存碎片？"><a href="#3-1-什么是内存碎片？为什么会有redis内存碎片？" class="headerlink" title="3.1 什么是内存碎片？为什么会有redis内存碎片？"></a>3.1 什么是内存碎片？为什么会有redis内存碎片？</h2><p>内存碎片可以看作不可用的闲置空间<br>产生原因：</p>
-<ol>
-<li>Redis存储数据的时候向操作系统申请的内存空间大于实际数据需要的空间</li>
-<li>频繁修改Redis里面数据</li>
-</ol>
-<h1 id="4-Redis生产问题"><a href="#4-Redis生产问题" class="headerlink" title="4. Redis生产问题"></a>4. Redis生产问题</h1><h2 id="4-1-缓存穿透"><a href="#4-1-缓存穿透" class="headerlink" title="4.1 缓存穿透"></a>4.1 缓存穿透</h2><h3 id="4-1-1-什么是缓存穿透？"><a href="#4-1-1-什么是缓存穿透？" class="headerlink" title="4.1.1 什么是缓存穿透？"></a>4.1.1 什么是缓存穿透？</h3><p>大量请求的key是不合理的，既不存在缓存中，也不存在数据库中。导致所有的请求直接到数据库上，没有经过缓存，数据库造成压力</p>
-<h3 id="4-1-2-如何解决"><a href="#4-1-2-如何解决" class="headerlink" title="4.1.2 如何解决"></a>4.1.2 如何解决</h3><ol>
-<li>缓存无效key</li>
-<li>使用布隆过滤器，判断key是否合法</li>
-</ol>
-<h3 id="4-1-3-是什么是布隆过滤器"><a href="#4-1-3-是什么是布隆过滤器" class="headerlink" title="4.1.3 是什么是布隆过滤器"></a>4.1.3 是什么是布隆过滤器</h3><p>添加元素：</p>
-<ol>
-<li>通过哈希函数对元素值进行计算，得到哈希值。</li>
-<li>在位数组对应下标设置为1</li>
-</ol>
-<p>查询元素:</p>
-<ol>
-<li>使用同样方式对key进行哈希计算，得到哈希值</li>
-<li>判断哈希值相应数组下标是否为1，1表示存在，0表示不存在</li>
-</ol>
-<p>会有误判，比如不同的字符串会计算相同的哈希值</p>
-<h2 id="4-2缓存击穿"><a href="#4-2缓存击穿" class="headerlink" title="4.2缓存击穿"></a>4.2缓存击穿</h2><h3 id="4-2-1-什么是缓存击穿？"><a href="#4-2-1-什么是缓存击穿？" class="headerlink" title="4.2.1 什么是缓存击穿？"></a>4.2.1 什么是缓存击穿？</h3><p>请求的key是热点数据，这个数据存在数据库，但是不存在与缓存里面（缓存数据过期），增加数据库压力</p>
-<h3 id="4-2-2-解决方式"><a href="#4-2-2-解决方式" class="headerlink" title="4.2.2 解决方式"></a>4.2.2 解决方式</h3><ol>
-<li>热点数据过期时间长</li>
-<li>缓存预热</li>
-<li>请求数据库写数据到缓存里面之前，先获取互斥锁，保证只有一个请求落到数据库上，减少数据库压力</li>
-</ol>
-<h3 id="4-2-3-缓存击穿和缓存穿透有什么区别？"><a href="#4-2-3-缓存击穿和缓存穿透有什么区别？" class="headerlink" title="4.2.3 缓存击穿和缓存穿透有什么区别？"></a>4.2.3 缓存击穿和缓存穿透有什么区别？</h3><ol>
-<li>缓存击穿里面的key是热点数据，存在数据库，但是不存在于缓存</li>
-<li>缓存穿透，请求的key既不存在数据库也不存在缓存</li>
-</ol>
-<h2 id="4-3-缓存雪崩"><a href="#4-3-缓存雪崩" class="headerlink" title="4.3 缓存雪崩"></a>4.3 缓存雪崩</h2><h3 id="4-3-1-什么是缓存雪崩？"><a href="#4-3-1-什么是缓存雪崩？" class="headerlink" title="4.3.1 什么是缓存雪崩？"></a>4.3.1 什么是缓存雪崩？</h3><p>缓存同一时间大面积失效，导致请求全部落在数据上。</p>
-<h3 id="4-3-2-解决方法"><a href="#4-3-2-解决方法" class="headerlink" title="4.3.2 解决方法"></a>4.3.2 解决方法</h3><p>Redis服务不可用</p>
-<ol>
-<li>搭建集群</li>
-<li>限流</li>
-</ol>
-<p>热点缓存失效</p>
-<ol>
-<li>设置不同的失效时间</li>
-<li>缓存不失效</li>
-<li>二级缓存</li>
-</ol>
-<h2 id="4-4-如何保证缓存数据和数据库数据是一致性的"><a href="#4-4-如何保证缓存数据和数据库数据是一致性的" class="headerlink" title="4.4 如何保证缓存数据和数据库数据是一致性的"></a>4.4 如何保证缓存数据和数据库数据是一致性的</h2><ol>
-<li>旁路缓存模式：更新DB，删除缓存<br>a. 更新数据库成功，缓存删除失败，使用缓存失效时间变短(不推荐)<br>b. 增加cache更新重试机制</li>
-<li>更新缓存，更新数据库</li>
-<li>更新数据库，更新缓存</li>
-<li>删除缓存，更新数据库</li>
-</ol>
-<h1 id="5-Redis集群"><a href="#5-Redis集群" class="headerlink" title="5. Redis集群"></a>5. Redis集群</h1><h2 id="5-1-如何保证redis服务高可用"><a href="#5-1-如何保证redis服务高可用" class="headerlink" title="5.1 如何保证redis服务高可用"></a>5.1 如何保证redis服务高可用</h2><p>Redis sentinel实现redis集群高可用，只是在主从复制实现集群的基础上，多了一个Sentinel角色帮我们监控Redis节点的运行状态，并且实现故障转移。<br>当master节点出现故障的时候，sentinel可以帮我住我们实现故障转移，按照一定规则从salve里面选出升级成为master,确保高可用，不需要人工介入。</p>
-<h2 id="5-2-Sentinel有什么用？"><a href="#5-2-Sentinel有什么用？" class="headerlink" title="5.2 Sentinel有什么用？"></a>5.2 Sentinel有什么用？</h2><ol>
-<li>监控：监控各个节点是否异常（包括自己）</li>
-<li>故障转移：当master出现故障的时候，sentinel能够从salve里面更具相应的规则选出新的master，确保可用性</li>
-<li>通知：通知slave节点新的master信息，使它们全部转移到新的master的slave</li>
-<li>配置提供：客户端连接sentinel请求新的master地址，如果出现故障转移，sentinel会通知新的master节点给客户端</li>
-</ol>
-<h2 id="5-3-Sentinel如何检测节点下线"><a href="#5-3-Sentinel如何检测节点下线" class="headerlink" title="5.3 Sentinel如何检测节点下线"></a>5.3 Sentinel如何检测节点下线</h2><ol>
-<li>主观下线：sentinel认为某个节点已经下线，但是还不确定，需要其他sentinel来确定</li>
-<li>客观下线：多个sentinel节点认为某个redis节点已经下线。</li>
-</ol>
-<h2 id="5-4-Sentinel如何选出新的master节点"><a href="#5-4-Sentinel如何选出新的master节点" class="headerlink" title="5.4 Sentinel如何选出新的master节点"></a>5.4 Sentinel如何选出新的master节点</h2><ol>
-<li>slave优先级</li>
-<li>复制进度：会优先选择出数据和master数据最接近的节点</li>
-<li>运行id</li>
-</ol>
-<h2 id="5-5-Sentinel如何选出Leader"><a href="#5-5-Sentinel如何选出Leader" class="headerlink" title="5.5 Sentinel如何选出Leader"></a>5.5 Sentinel如何选出Leader</h2><p>使用raft算法</p>
-<h2 id="5-6-为什么建议部署多个sentinel节点（哨兵集群）"><a href="#5-6-为什么建议部署多个sentinel节点（哨兵集群）" class="headerlink" title="5.6 为什么建议部署多个sentinel节点（哨兵集群）"></a>5.6 为什么建议部署多个sentinel节点（哨兵集群）</h2><ol>
-<li>多个sentinel可以通过投票的方式判断某个节点受否故障，避免误判</li>
-<li>sentinel本身就是高可用</li>
-</ol>
-<h2 id="5-7-Sentinel可以防止脑裂吗？"><a href="#5-7-Sentinel可以防止脑裂吗？" class="headerlink" title="5.7 Sentinel可以防止脑裂吗？"></a>5.7 Sentinel可以防止脑裂吗？</h2><p>脑裂是指分布式系统里面，不同节点之间通信互相影响，导致数据不同步，出现影响<br>可以，sentinel提供流量控制以及监控</p>
-<h2 id="5-8-Redis缓存的数据量太大怎么办？"><a href="#5-8-Redis缓存的数据量太大怎么办？" class="headerlink" title="5.8 Redis缓存的数据量太大怎么办？"></a>5.8 Redis缓存的数据量太大怎么办？</h2><p>采用Redis Cluster</p>
-<h2 id="5-9-为什么要使用Redis-Cluster？"><a href="#5-9-为什么要使用Redis-Cluster？" class="headerlink" title="5.9 为什么要使用Redis Cluster？"></a>5.9 为什么要使用Redis Cluster？</h2><ol>
-<li>缓存的数据量太大</li>
-<li>并发量要求太大</li>
-</ol>
-<h2 id="5-10-Redis-Cluster虚拟槽分区有什么优点？"><a href="#5-10-Redis-Cluster虚拟槽分区有什么优点？" class="headerlink" title="5.10 Redis Cluster虚拟槽分区有什么优点？"></a>5.10 Redis Cluster虚拟槽分区有什么优点？</h2><ol>
-<li>解耦了数据和节点之间的关系</li>
-<li>提升了集群的横向扩展和容错性</li>
-</ol>
+                <h1 id="1-反转链表"><a href="#1-反转链表" class="headerlink" title="1. 反转链表"></a>1. 反转链表</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-linked-list/">给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。</a></p>
+<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><h3 id="2-1-如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。"><a href="#2-1-如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。" class="headerlink" title="2.1 如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。"></a>2.1 如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。</h3><p>画图流程<br><img src="/images/xhlbfz-1.png" srcset="/img/loading.gif" lazyload alt="img.png"><br>完整图<br><img src="/images/xhlbfz-2.png" srcset="/img/loading.gif" lazyload alt="img_1.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">reverseList</span><span class="hljs-params">(ListNode head)</span> &#123;<br>      <span class="hljs-type">ListNode</span> <span class="hljs-variable">sentinel</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ListNode</span>(-<span class="hljs-number">1</span>);<br>      <span class="hljs-type">ListNode</span> <span class="hljs-variable">curr</span> <span class="hljs-operator">=</span> head;<br>      <span class="hljs-keyword">while</span>(curr!=<span class="hljs-literal">null</span>)&#123;<br>          <span class="hljs-type">ListNode</span> <span class="hljs-variable">nextNode</span> <span class="hljs-operator">=</span> curr.next;<br>          curr.next = sentinel.next;<br>          sentinel.next = curr;<br>          curr = nextNode;<br>      &#125;<br>      <span class="hljs-keyword">return</span> sentinel.next;<br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<p>运行截图：<br><img src="/images/xhlbfz-3.png" srcset="/img/loading.gif" lazyload alt="img_2.png"><br>时间复杂度: O(n)<br>空间复杂度: O(1)</p>
+<p>总结：这个刚开始写的时候，有点绕，一直不怎么理解为什么虚拟节点的下一个指向当前节点的位置，而且不会影响之前的节点，这个还是需要进一步画图才能理解。</p>
+<h2 id="2-2-但是有的时候面试，不让使用虚拟节点，只能使用链表里面的节点，设置一个空节点prev，然后让当前节点指向空节点prev，然后prev再移动到当前节点，依次添加节点，那么走到最后prev就是第一个节点了，理清楚原理，也还是容易的。"><a href="#2-2-但是有的时候面试，不让使用虚拟节点，只能使用链表里面的节点，设置一个空节点prev，然后让当前节点指向空节点prev，然后prev再移动到当前节点，依次添加节点，那么走到最后prev就是第一个节点了，理清楚原理，也还是容易的。" class="headerlink" title="2.2 但是有的时候面试，不让使用虚拟节点，只能使用链表里面的节点，设置一个空节点prev，然后让当前节点指向空节点prev，然后prev再移动到当前节点，依次添加节点，那么走到最后prev就是第一个节点了，理清楚原理，也还是容易的。"></a>2.2 但是有的时候面试，不让使用虚拟节点，只能使用链表里面的节点，设置一个空节点prev，然后让当前节点指向空节点prev，然后prev再移动到当前节点，依次添加节点，那么走到最后prev就是第一个节点了，理清楚原理，也还是容易的。</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">reverseList</span><span class="hljs-params">(ListNode head)</span> &#123;<br>       <span class="hljs-type">ListNode</span> <span class="hljs-variable">prev</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>       <span class="hljs-type">ListNode</span> <span class="hljs-variable">cur</span> <span class="hljs-operator">=</span> head;<br>       <span class="hljs-keyword">while</span>(cur!=<span class="hljs-literal">null</span>)&#123;<br>           <span class="hljs-type">ListNode</span>  <span class="hljs-variable">nextNode</span> <span class="hljs-operator">=</span> cur.next;<br>           cur.next = prev;<br>           prev = cur;<br>           cur = nextNode;<br>       &#125;<br>       <span class="hljs-keyword">return</span> prev;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<p>运行截图：<br><img src="/images/xhlbfz-4.png" srcset="/img/loading.gif" lazyload alt="img_3.png"><br>时间复杂度和空间复杂度和上面的一样</p>
+<p>总结：相对来说这个方法我还是能够容易理解的。</p>
+<h2 id="2-3-第三个就是递归了，让每次递归出来的节点都指向前一个节点，但是这个需要判断当前节点以及后一个节点是否为空的情况。"><a href="#2-3-第三个就是递归了，让每次递归出来的节点都指向前一个节点，但是这个需要判断当前节点以及后一个节点是否为空的情况。" class="headerlink" title="2.3 第三个就是递归了，让每次递归出来的节点都指向前一个节点，但是这个需要判断当前节点以及后一个节点是否为空的情况。"></a>2.3 第三个就是递归了，让每次递归出来的节点都指向前一个节点，但是这个需要判断当前节点以及后一个节点是否为空的情况。</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">reverseList</span><span class="hljs-params">(ListNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span>(head == <span class="hljs-literal">null</span> || head.next == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> head;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">node</span> <span class="hljs-operator">=</span> reverseList(head.next);<br>    head.next.next = head;<br>    head.next = <span class="hljs-literal">null</span>;<br>    <span class="hljs-keyword">return</span> node;<br>  &#125;<br></code></pre></td></tr></table></figure>
+<p>运行截图<br><img src="/images/xhlbfz-5.png" srcset="/img/loading.gif" lazyload alt="img_4.png"><br>时间复杂度：O(n)<br>空间复杂度：O(n) 递归深度</p>
+<p>总结：递归也是能够理解的，但是实际操作上很少使用递归。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>链表反转的前两个方法一定需要记住，很常用。</p>
 
                 
               </div>
@@ -402,7 +322,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/redis/" class="category-chain-item">redis</a>
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
   
   
 
@@ -417,9 +337,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="print-no-link">#面试题</a>
+        <a href="/tags/%E7%AE%97%E6%B3%95/" class="print-no-link">#算法</a>
       
-        <a href="/tags/redis/" class="print-no-link">#redis</a>
+        <a href="/tags/%E9%93%BE%E8%A1%A8/" class="print-no-link">#链表</a>
       
     </div>
   
@@ -431,8 +351,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Redis面试题-2</div>
-      <div>http://flybase1.github.io/post/4a61660f.html</div>
+      <div>算法通关村第二关——终于学会链表反转了</div>
+      <div>http://flybase1.github.io/post/e58bcd03.html</div>
     </div>
     <div class="license-meta">
       
@@ -476,18 +396,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/e58bcd03.html" title="算法通关村第二关——终于学会链表反转了">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">算法通关村第二关——终于学会链表反转了</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/post/64cd7498.html" title="算法通关村第一关——链表经典问题之删除链表元素笔记">
-                        <span class="hidden-mobile">算法通关村第一关——链表经典问题之删除链表元素笔记</span>
+                      <a href="/post/4a61660f.html" title="Redis面试题-2">
+                        <span class="hidden-mobile">Redis面试题-2</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

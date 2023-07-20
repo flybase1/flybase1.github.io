@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>算法通关村第二关——终于学会链表反转了</title>
+      <link href="/post/e58bcd03.html"/>
+      <url>/post/e58bcd03.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-反转链表"><a href="#1-反转链表" class="headerlink" title="1. 反转链表"></a>1. 反转链表</h1><p><a href="https://leetcode.cn/problems/reverse-linked-list/">给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。</a></p><h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><h3 id="2-1-如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。"><a href="#2-1-如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。" class="headerlink" title="2.1 如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。"></a>2.1 如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。</h3><p>画图流程<br><img src="/images/xhlbfz-1.png" alt="img.png"><br>完整图<br><img src="/images/xhlbfz-2.png" alt="img_1.png"></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">reverseList</span><span class="hljs-params">(ListNode head)</span> &#123;<br>      <span class="hljs-type">ListNode</span> <span class="hljs-variable">sentinel</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ListNode</span>(-<span class="hljs-number">1</span>);<br>      <span class="hljs-type">ListNode</span> <span class="hljs-variable">curr</span> <span class="hljs-operator">=</span> head;<br>      <span class="hljs-keyword">while</span>(curr!=<span class="hljs-literal">null</span>)&#123;<br>          <span class="hljs-type">ListNode</span> <span class="hljs-variable">nextNode</span> <span class="hljs-operator">=</span> curr.next;<br>          curr.next = sentinel.next;<br>          sentinel.next = curr;<br>          curr = nextNode;<br>      &#125;<br>      <span class="hljs-keyword">return</span> sentinel.next;<br>  &#125;<br></code></pre></td></tr></table></figure><p>运行截图：<br><img src="/images/xhlbfz-3.png" alt="img_2.png"><br>时间复杂度: O(n)<br>空间复杂度: O(1)</p><p>总结：这个刚开始写的时候，有点绕，一直不怎么理解为什么虚拟节点的下一个指向当前节点的位置，而且不会影响之前的节点，这个还是需要进一步画图才能理解。</p><h2 id="2-2-但是有的时候面试，不让使用虚拟节点，只能使用链表里面的节点，设置一个空节点prev，然后让当前节点指向空节点prev，然后prev再移动到当前节点，依次添加节点，那么走到最后prev就是第一个节点了，理清楚原理，也还是容易的。"><a href="#2-2-但是有的时候面试，不让使用虚拟节点，只能使用链表里面的节点，设置一个空节点prev，然后让当前节点指向空节点prev，然后prev再移动到当前节点，依次添加节点，那么走到最后prev就是第一个节点了，理清楚原理，也还是容易的。" class="headerlink" title="2.2 但是有的时候面试，不让使用虚拟节点，只能使用链表里面的节点，设置一个空节点prev，然后让当前节点指向空节点prev，然后prev再移动到当前节点，依次添加节点，那么走到最后prev就是第一个节点了，理清楚原理，也还是容易的。"></a>2.2 但是有的时候面试，不让使用虚拟节点，只能使用链表里面的节点，设置一个空节点prev，然后让当前节点指向空节点prev，然后prev再移动到当前节点，依次添加节点，那么走到最后prev就是第一个节点了，理清楚原理，也还是容易的。</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">reverseList</span><span class="hljs-params">(ListNode head)</span> &#123;<br>       <span class="hljs-type">ListNode</span> <span class="hljs-variable">prev</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>       <span class="hljs-type">ListNode</span> <span class="hljs-variable">cur</span> <span class="hljs-operator">=</span> head;<br>       <span class="hljs-keyword">while</span>(cur!=<span class="hljs-literal">null</span>)&#123;<br>           <span class="hljs-type">ListNode</span>  <span class="hljs-variable">nextNode</span> <span class="hljs-operator">=</span> cur.next;<br>           cur.next = prev;<br>           prev = cur;<br>           cur = nextNode;<br>       &#125;<br>       <span class="hljs-keyword">return</span> prev;<br>    &#125;<br></code></pre></td></tr></table></figure><p>运行截图：<br><img src="/images/xhlbfz-4.png" alt="img_3.png"><br>时间复杂度和空间复杂度和上面的一样</p><p>总结：相对来说这个方法我还是能够容易理解的。</p><h2 id="2-3-第三个就是递归了，让每次递归出来的节点都指向前一个节点，但是这个需要判断当前节点以及后一个节点是否为空的情况。"><a href="#2-3-第三个就是递归了，让每次递归出来的节点都指向前一个节点，但是这个需要判断当前节点以及后一个节点是否为空的情况。" class="headerlink" title="2.3 第三个就是递归了，让每次递归出来的节点都指向前一个节点，但是这个需要判断当前节点以及后一个节点是否为空的情况。"></a>2.3 第三个就是递归了，让每次递归出来的节点都指向前一个节点，但是这个需要判断当前节点以及后一个节点是否为空的情况。</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">reverseList</span><span class="hljs-params">(ListNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span>(head == <span class="hljs-literal">null</span> || head.next == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> head;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">node</span> <span class="hljs-operator">=</span> reverseList(head.next);<br>    head.next.next = head;<br>    head.next = <span class="hljs-literal">null</span>;<br>    <span class="hljs-keyword">return</span> node;<br>  &#125;<br></code></pre></td></tr></table></figure><p>运行截图<br><img src="/images/xhlbfz-5.png" alt="img_4.png"><br>时间复杂度：O(n)<br>空间复杂度：O(n) 递归深度</p><p>总结：递归也是能够理解的，但是实际操作上很少使用递归。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>链表反转的前两个方法一定需要记住，很常用。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Redis面试题-2</title>
       <link href="/post/4a61660f.html"/>
       <url>/post/4a61660f.html</url>
