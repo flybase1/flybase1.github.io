@@ -16,31 +16,25 @@
   <meta name="author" content="FlyCode">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. 反转链表给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。 2. 分析2.1 如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。画图流程完整图 1234567891011public ListNode reverseList(ListNode he">
+    <meta name="description" content="1. 使用Spring框架的好处 面向切面编程AOP 依赖注入 声明式事务管理 IOC容器 便于测试  2. Spring的两大核心 依赖反转：将对象的创建以及依赖管理交由spring管理 Spring AOP：与业务无关的代码从业务中剥离出来。实现解耦。  3. Spring IOC3.1 谈谈对Spring IOC的理解IOC也是称为控制反转，是一种设计思想，并不是一种技术的实现。Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法通关村第二关——终于学会链表反转了">
-<meta property="og:url" content="http://flybase1.github.io/post/e58bcd03.html">
+<meta property="og:title" content="Spring面试题-1">
+<meta property="og:url" content="http://flybase1.github.io/post/65da449b.html">
 <meta property="og:site_name" content="FlyCode的个人博客">
-<meta property="og:description" content="1. 反转链表给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。 2. 分析2.1 如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。画图流程完整图 1234567891011public ListNode reverseList(ListNode he">
+<meta property="og:description" content="1. 使用Spring框架的好处 面向切面编程AOP 依赖注入 声明式事务管理 IOC容器 便于测试  2. Spring的两大核心 依赖反转：将对象的创建以及依赖管理交由spring管理 Spring AOP：与业务无关的代码从业务中剥离出来。实现解耦。  3. Spring IOC3.1 谈谈对Spring IOC的理解IOC也是称为控制反转，是一种设计思想，并不是一种技术的实现。Spring">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://flybase1.github.io/images/xhlbfz-1.png">
-<meta property="og:image" content="http://flybase1.github.io/images/xhlbfz-2.png">
-<meta property="og:image" content="http://flybase1.github.io/images/xhlbfz-3.png">
-<meta property="og:image" content="http://flybase1.github.io/images/xhlbfz-4.png">
-<meta property="og:image" content="http://flybase1.github.io/images/xhlbfz-5.png">
-<meta property="article:published_time" content="2023-07-20T09:01:18.000Z">
-<meta property="article:modified_time" content="2023-07-20T10:46:44.129Z">
+<meta property="article:published_time" content="2023-07-21T06:34:45.000Z">
+<meta property="article:modified_time" content="2023-07-21T06:57:51.469Z">
 <meta property="article:author" content="FlyCode">
-<meta property="article:tag" content="算法">
-<meta property="article:tag" content="链表">
+<meta property="article:tag" content="面试题">
+<meta property="article:tag" content="spring">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://flybase1.github.io/images/xhlbfz-1.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>算法通关村第二关——终于学会链表反转了 - FlyCode的个人博客</title>
+  <title>Spring面试题-1 - FlyCode的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -206,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="算法通关村第二关——终于学会链表反转了"></span>
+            <span id="subtitle" data-typed-text="Spring面试题-1"></span>
           
         </div>
 
@@ -217,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-20 17:01" pubdate>
-          2023年7月20日 下午
+        <time datetime="2023-07-21 14:34" pubdate>
+          2023年7月21日 下午
         </time>
       </span>
     
@@ -229,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          1.3k 字
         
       </span>
     
@@ -240,7 +234,7 @@
         
         
         
-          10 分钟
+          12 分钟
         
       </span>
     
@@ -285,25 +279,55 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">算法通关村第二关——终于学会链表反转了</h1>
+            <h1 id="seo-header">Spring面试题-1</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="1-反转链表"><a href="#1-反转链表" class="headerlink" title="1. 反转链表"></a>1. 反转链表</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-linked-list/">给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。</a></p>
-<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2. 分析"></a>2. 分析</h2><h3 id="2-1-如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。"><a href="#2-1-如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。" class="headerlink" title="2.1 如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。"></a>2.1 如果不考虑使用链表反转的话，其实可以借助栈来实现，但是这里就不考虑了。链表反转就是将当前节点指向前一个节点，之前需要记录下一个节点，简单的写法是需要使用一个虚拟节点指向下一个节点。</h3><p>画图流程<br><img src="/images/xhlbfz-1.png" srcset="/img/loading.gif" lazyload alt="img.png"><br>完整图<br><img src="/images/xhlbfz-2.png" srcset="/img/loading.gif" lazyload alt="img_1.png"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">reverseList</span><span class="hljs-params">(ListNode head)</span> &#123;<br>      <span class="hljs-type">ListNode</span> <span class="hljs-variable">sentinel</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ListNode</span>(-<span class="hljs-number">1</span>);<br>      <span class="hljs-type">ListNode</span> <span class="hljs-variable">curr</span> <span class="hljs-operator">=</span> head;<br>      <span class="hljs-keyword">while</span>(curr!=<span class="hljs-literal">null</span>)&#123;<br>          <span class="hljs-type">ListNode</span> <span class="hljs-variable">nextNode</span> <span class="hljs-operator">=</span> curr.next;<br>          curr.next = sentinel.next;<br>          sentinel.next = curr;<br>          curr = nextNode;<br>      &#125;<br>      <span class="hljs-keyword">return</span> sentinel.next;<br>  &#125;<br></code></pre></td></tr></table></figure>
-
-<p>运行截图：<br><img src="/images/xhlbfz-3.png" srcset="/img/loading.gif" lazyload alt="img_2.png"><br>时间复杂度: O(n)<br>空间复杂度: O(1)</p>
-<p>总结：这个刚开始写的时候，有点绕，一直不怎么理解为什么虚拟节点的下一个指向当前节点的位置，而且不会影响之前的节点，这个还是需要进一步画图才能理解。</p>
-<h2 id="2-2-但是有的时候面试，不让使用虚拟节点，只能使用链表里面的节点，设置一个空节点prev，然后让当前节点指向空节点prev，然后prev再移动到当前节点，依次添加节点，那么走到最后prev就是第一个节点了，理清楚原理，也还是容易的。"><a href="#2-2-但是有的时候面试，不让使用虚拟节点，只能使用链表里面的节点，设置一个空节点prev，然后让当前节点指向空节点prev，然后prev再移动到当前节点，依次添加节点，那么走到最后prev就是第一个节点了，理清楚原理，也还是容易的。" class="headerlink" title="2.2 但是有的时候面试，不让使用虚拟节点，只能使用链表里面的节点，设置一个空节点prev，然后让当前节点指向空节点prev，然后prev再移动到当前节点，依次添加节点，那么走到最后prev就是第一个节点了，理清楚原理，也还是容易的。"></a>2.2 但是有的时候面试，不让使用虚拟节点，只能使用链表里面的节点，设置一个空节点prev，然后让当前节点指向空节点prev，然后prev再移动到当前节点，依次添加节点，那么走到最后prev就是第一个节点了，理清楚原理，也还是容易的。</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">reverseList</span><span class="hljs-params">(ListNode head)</span> &#123;<br>       <span class="hljs-type">ListNode</span> <span class="hljs-variable">prev</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>       <span class="hljs-type">ListNode</span> <span class="hljs-variable">cur</span> <span class="hljs-operator">=</span> head;<br>       <span class="hljs-keyword">while</span>(cur!=<span class="hljs-literal">null</span>)&#123;<br>           <span class="hljs-type">ListNode</span>  <span class="hljs-variable">nextNode</span> <span class="hljs-operator">=</span> cur.next;<br>           cur.next = prev;<br>           prev = cur;<br>           cur = nextNode;<br>       &#125;<br>       <span class="hljs-keyword">return</span> prev;<br>    &#125;<br></code></pre></td></tr></table></figure>
-
-<p>运行截图：<br><img src="/images/xhlbfz-4.png" srcset="/img/loading.gif" lazyload alt="img_3.png"><br>时间复杂度和空间复杂度和上面的一样</p>
-<p>总结：相对来说这个方法我还是能够容易理解的。</p>
-<h2 id="2-3-第三个就是递归了，让每次递归出来的节点都指向前一个节点，但是这个需要判断当前节点以及后一个节点是否为空的情况。"><a href="#2-3-第三个就是递归了，让每次递归出来的节点都指向前一个节点，但是这个需要判断当前节点以及后一个节点是否为空的情况。" class="headerlink" title="2.3 第三个就是递归了，让每次递归出来的节点都指向前一个节点，但是这个需要判断当前节点以及后一个节点是否为空的情况。"></a>2.3 第三个就是递归了，让每次递归出来的节点都指向前一个节点，但是这个需要判断当前节点以及后一个节点是否为空的情况。</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">reverseList</span><span class="hljs-params">(ListNode head)</span> &#123;<br>    <span class="hljs-keyword">if</span>(head == <span class="hljs-literal">null</span> || head.next == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> head;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">node</span> <span class="hljs-operator">=</span> reverseList(head.next);<br>    head.next.next = head;<br>    head.next = <span class="hljs-literal">null</span>;<br>    <span class="hljs-keyword">return</span> node;<br>  &#125;<br></code></pre></td></tr></table></figure>
-<p>运行截图<br><img src="/images/xhlbfz-5.png" srcset="/img/loading.gif" lazyload alt="img_4.png"><br>时间复杂度：O(n)<br>空间复杂度：O(n) 递归深度</p>
-<p>总结：递归也是能够理解的，但是实际操作上很少使用递归。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>链表反转的前两个方法一定需要记住，很常用。</p>
+                <h1 id="1-使用Spring框架的好处"><a href="#1-使用Spring框架的好处" class="headerlink" title="1. 使用Spring框架的好处"></a>1. 使用Spring框架的好处</h1><ol>
+<li>面向切面编程AOP</li>
+<li>依赖注入</li>
+<li>声明式事务管理</li>
+<li>IOC容器</li>
+<li>便于测试</li>
+</ol>
+<h1 id="2-Spring的两大核心"><a href="#2-Spring的两大核心" class="headerlink" title="2. Spring的两大核心"></a>2. Spring的两大核心</h1><ol>
+<li><strong>依赖反转</strong>：将对象的创建以及依赖管理交由spring管理</li>
+<li><strong>Spring AOP</strong>：与业务无关的代码从业务中剥离出来。实现解耦。</li>
+</ol>
+<h1 id="3-Spring-IOC"><a href="#3-Spring-IOC" class="headerlink" title="3. Spring IOC"></a>3. Spring IOC</h1><h2 id="3-1-谈谈对Spring-IOC的理解"><a href="#3-1-谈谈对Spring-IOC的理解" class="headerlink" title="3.1 谈谈对Spring IOC的理解"></a>3.1 谈谈对Spring IOC的理解</h2><p>IOC也是称为控制反转，是一种<strong>设计思想</strong>，并不是一种技术的实现。Spring IOC主要是将原本手动创建对象的控制权，交给spring框架来管理。实现了松耦合与可重用性。</p>
+<h2 id="3-2-Spring-IOC的实现机制"><a href="#3-2-Spring-IOC的实现机制" class="headerlink" title="3.2 Spring IOC的实现机制"></a>3.2 Spring IOC的实现机制</h2><ol>
+<li><strong>定义一个Bean</strong>：所有的对象都可以看作是一个bean,需要在配置文件或者注解的方式进行配置和定义</li>
+<li><strong>创建Bean工厂</strong>：Bean工厂管理Bean的创建，组装，销毁等任务。</li>
+<li><strong>读取配置文件</strong>：Spring IOC容器会读取配置文件或者注解的方式来获取Bean的定义和配置信息。</li>
+<li><strong>创建Bean实例</strong>：Spring IOC会根据配置文件里面的信息，使用反射技术创建Bean实例，保存在容器在容器里面。</li>
+<li><strong>组装Bean</strong>：根据配置文件的信息，将不同的Bean实例组装起来，形成完整的应用程序。</li>
+<li><strong>注入依赖</strong>：自动为Bean注入依赖的对象或者值。</li>
+<li><strong>提供Bean实例</strong>：通过容器获取需要的Bean实例，从而使用其中的方法和属性</li>
+</ol>
+<h2 id="3-3-将一个类声明为一个Bean有哪些注解？"><a href="#3-3-将一个类声明为一个Bean有哪些注解？" class="headerlink" title="3.3 将一个类声明为一个Bean有哪些注解？"></a>3.3 将一个类声明为一个Bean有哪些注解？</h2><p>@Component:  标记任意类为spring组件<br>@Repository:  持久层，和数据库相关操作<br>@Service：  服务层，处理复杂逻辑，使用Dao层<br>@Controller：Spring MVC控制层，调用service数据返回前端数据</p>
+<h2 id="3-4-Componet和-Bean有什么区别？"><a href="#3-4-Componet和-Bean有什么区别？" class="headerlink" title="3.4 @Componet和@Bean有什么区别？"></a>3.4 @Componet和@Bean有什么区别？</h2><ol>
+<li>@Component注解作用于类，而@Bean 作用于方法</li>
+<li>@Componet可以通过@ComponetScan扫描路径自动装配到Spring里面去，@Bean只是标注这个方法上产生这个Bean</li>
+<li>@Bean自定义行强，比如引入第三方类需要使用@Bean</li>
+</ol>
+<h2 id="3-5-Autowired和-Resource的区别？"><a href="#3-5-Autowired和-Resource的区别？" class="headerlink" title="3.5 @Autowired和@Resource的区别？"></a>3.5 @Autowired和@Resource的区别？</h2><ol>
+<li>@Autowired是Spring提供的，@Resource是JDK提供的。</li>
+<li>@Autowired默认使用byType(类型匹配)，而@Resource默认是byName</li>
+<li>当一个接口存在多个实现类，两者都需要使用名字来正确匹配Bean。@Autowired通过@Qualifier注解显示名称，@ Resource通过name属性指定名称。</li>
+</ol>
+<h2 id="3-6-Bean线程是安全的吗？"><a href="#3-6-Bean线程是安全的吗？" class="headerlink" title="3.6 Bean线程是安全的吗？"></a>3.6 Bean线程是安全的吗？</h2><p>protoType：每次创建一个新的bean，不存在资源竞争问题<br>singeton：IOC容器里面只有一个bean实例，可能存在资源抢占，如果这个bean是有状态的话（包含成员变量）<br>解决方法：</p>
+<ol>
+<li>避免使用成员变量</li>
+<li>使用ThreadLocal</li>
+</ol>
+<h2 id="3-7-Bean的生命周期"><a href="#3-7-Bean的生命周期" class="headerlink" title="3.7 Bean的生命周期"></a>3.7 Bean的生命周期</h2><ol>
+<li>实例化Bean：spring根据配置文件或注解方式创建Bean实例，存储在容器里面</li>
+<li>属性注入：spring自动将属性值从配置文件或注解方式注入到bean实例里面去</li>
+<li>初始化：调用bean的 init完成实例化，完成初始操作，例如数据库连接。</li>
+<li>使用：bean正常使用，供程序调用</li>
+<li>销毁：调用bean里面的destory-method完成资源的释放，例如关闭数据库</li>
+</ol>
 
                 
               </div>
@@ -322,7 +346,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  <a href="/categories/spring/" class="category-chain-item">spring</a>
   
   
 
@@ -337,9 +361,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%AE%97%E6%B3%95/" class="print-no-link">#算法</a>
+        <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="print-no-link">#面试题</a>
       
-        <a href="/tags/%E9%93%BE%E8%A1%A8/" class="print-no-link">#链表</a>
+        <a href="/tags/spring/" class="print-no-link">#spring</a>
       
     </div>
   
@@ -351,8 +375,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>算法通关村第二关——终于学会链表反转了</div>
-      <div>http://flybase1.github.io/post/e58bcd03.html</div>
+      <div>Spring面试题-1</div>
+      <div>http://flybase1.github.io/post/65da449b.html</div>
     </div>
     <div class="license-meta">
       
@@ -364,7 +388,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年7月20日</div>
+          <div>2023年7月21日</div>
         </div>
       
       
@@ -396,18 +420,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/3d665699.html" title="Redis面试题-3">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Redis面试题-3</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/post/4a61660f.html" title="Redis面试题-2">
-                        <span class="hidden-mobile">Redis面试题-2</span>
+                      <a href="/post/3d665699.html" title="Redis面试题-3">
+                        <span class="hidden-mobile">Redis面试题-3</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

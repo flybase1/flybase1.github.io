@@ -4,6 +4,60 @@
   
   
   <entry>
+    <title>Spring面试题-1</title>
+    <link href="/post/65da449b.html"/>
+    <url>/post/65da449b.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-使用Spring框架的好处"><a href="#1-使用Spring框架的好处" class="headerlink" title="1. 使用Spring框架的好处"></a>1. 使用Spring框架的好处</h1><ol><li>面向切面编程AOP</li><li>依赖注入</li><li>声明式事务管理</li><li>IOC容器</li><li>便于测试</li></ol><h1 id="2-Spring的两大核心"><a href="#2-Spring的两大核心" class="headerlink" title="2. Spring的两大核心"></a>2. Spring的两大核心</h1><ol><li><strong>依赖反转</strong>：将对象的创建以及依赖管理交由spring管理</li><li><strong>Spring AOP</strong>：与业务无关的代码从业务中剥离出来。实现解耦。</li></ol><h1 id="3-Spring-IOC"><a href="#3-Spring-IOC" class="headerlink" title="3. Spring IOC"></a>3. Spring IOC</h1><h2 id="3-1-谈谈对Spring-IOC的理解"><a href="#3-1-谈谈对Spring-IOC的理解" class="headerlink" title="3.1 谈谈对Spring IOC的理解"></a>3.1 谈谈对Spring IOC的理解</h2><p>IOC也是称为控制反转，是一种<strong>设计思想</strong>，并不是一种技术的实现。Spring IOC主要是将原本手动创建对象的控制权，交给spring框架来管理。实现了松耦合与可重用性。</p><h2 id="3-2-Spring-IOC的实现机制"><a href="#3-2-Spring-IOC的实现机制" class="headerlink" title="3.2 Spring IOC的实现机制"></a>3.2 Spring IOC的实现机制</h2><ol><li><strong>定义一个Bean</strong>：所有的对象都可以看作是一个bean,需要在配置文件或者注解的方式进行配置和定义</li><li><strong>创建Bean工厂</strong>：Bean工厂管理Bean的创建，组装，销毁等任务。</li><li><strong>读取配置文件</strong>：Spring IOC容器会读取配置文件或者注解的方式来获取Bean的定义和配置信息。</li><li><strong>创建Bean实例</strong>：Spring IOC会根据配置文件里面的信息，使用反射技术创建Bean实例，保存在容器在容器里面。</li><li><strong>组装Bean</strong>：根据配置文件的信息，将不同的Bean实例组装起来，形成完整的应用程序。</li><li><strong>注入依赖</strong>：自动为Bean注入依赖的对象或者值。</li><li><strong>提供Bean实例</strong>：通过容器获取需要的Bean实例，从而使用其中的方法和属性</li></ol><h2 id="3-3-将一个类声明为一个Bean有哪些注解？"><a href="#3-3-将一个类声明为一个Bean有哪些注解？" class="headerlink" title="3.3 将一个类声明为一个Bean有哪些注解？"></a>3.3 将一个类声明为一个Bean有哪些注解？</h2><p>@Component:  标记任意类为spring组件<br>@Repository:  持久层，和数据库相关操作<br>@Service：  服务层，处理复杂逻辑，使用Dao层<br>@Controller：Spring MVC控制层，调用service数据返回前端数据</p><h2 id="3-4-Componet和-Bean有什么区别？"><a href="#3-4-Componet和-Bean有什么区别？" class="headerlink" title="3.4 @Componet和@Bean有什么区别？"></a>3.4 @Componet和@Bean有什么区别？</h2><ol><li>@Component注解作用于类，而@Bean 作用于方法</li><li>@Componet可以通过@ComponetScan扫描路径自动装配到Spring里面去，@Bean只是标注这个方法上产生这个Bean</li><li>@Bean自定义行强，比如引入第三方类需要使用@Bean</li></ol><h2 id="3-5-Autowired和-Resource的区别？"><a href="#3-5-Autowired和-Resource的区别？" class="headerlink" title="3.5 @Autowired和@Resource的区别？"></a>3.5 @Autowired和@Resource的区别？</h2><ol><li>@Autowired是Spring提供的，@Resource是JDK提供的。</li><li>@Autowired默认使用byType(类型匹配)，而@Resource默认是byName</li><li>当一个接口存在多个实现类，两者都需要使用名字来正确匹配Bean。@Autowired通过@Qualifier注解显示名称，@ Resource通过name属性指定名称。</li></ol><h2 id="3-6-Bean线程是安全的吗？"><a href="#3-6-Bean线程是安全的吗？" class="headerlink" title="3.6 Bean线程是安全的吗？"></a>3.6 Bean线程是安全的吗？</h2><p>protoType：每次创建一个新的bean，不存在资源竞争问题<br>singeton：IOC容器里面只有一个bean实例，可能存在资源抢占，如果这个bean是有状态的话（包含成员变量）<br>解决方法：</p><ol><li>避免使用成员变量</li><li>使用ThreadLocal</li></ol><h2 id="3-7-Bean的生命周期"><a href="#3-7-Bean的生命周期" class="headerlink" title="3.7 Bean的生命周期"></a>3.7 Bean的生命周期</h2><ol><li>实例化Bean：spring根据配置文件或注解方式创建Bean实例，存储在容器里面</li><li>属性注入：spring自动将属性值从配置文件或注解方式注入到bean实例里面去</li><li>初始化：调用bean的 init完成实例化，完成初始操作，例如数据库连接。</li><li>使用：bean正常使用，供程序调用</li><li>销毁：调用bean里面的destory-method完成资源的释放，例如关闭数据库</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>spring</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试题</tag>
+      
+      <tag>spring</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Redis面试题-3</title>
+    <link href="/post/3d665699.html"/>
+    <url>/post/3d665699.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-什么是Redis切片集群？"><a href="#1-什么是Redis切片集群？" class="headerlink" title="1. 什么是Redis切片集群？"></a>1. 什么是Redis切片集群？</h1><p>部署多台redis主节点，这些节点平等，并没有主从之说，同时对外提供读写能力，缓存的数据均匀的分布在这些redis实力上，客户端通过路由规则转发到目标master上</p><h1 id="2-Redis-Cluster集群优点"><a href="#2-Redis-Cluster集群优点" class="headerlink" title="2. Redis Cluster集群优点"></a>2. Redis Cluster集群优点</h1><ol><li>可以横向扩展缓解写压力和存储压力，动态扩容与缩容</li><li>主从复制，故障转移（内置sentinel）等等</li></ol><h1 id="3-Redis里面的Cluster节点如何通信？"><a href="#3-Redis里面的Cluster节点如何通信？" class="headerlink" title="3. Redis里面的Cluster节点如何通信？"></a>3. Redis里面的Cluster节点如何通信？</h1><p>Gossip协议</p><h1 id="4-Redis-cluster是如何进行分片的？-数据是如何分布的？-如何确定key分配到哪个哈希槽中？"><a href="#4-Redis-cluster是如何进行分片的？-数据是如何分布的？-如何确定key分配到哪个哈希槽中？" class="headerlink" title="4. Redis cluster是如何进行分片的？&#x2F;数据是如何分布的？&#x2F;如何确定key分配到哪个哈希槽中？"></a>4. Redis cluster是如何进行分片的？&#x2F;数据是如何分布的？&#x2F;如何确定key分配到哪个哈希槽中？</h1><p>采用的是哈希槽分区，每个键值对都属于一个哈希槽，通常由16384个哈希槽，然后通过相应的key确定应该分到哪个哈希槽里面。<br>当客户端发送命令请求的时候，需要先根据 key 通过上面的计算公示找到的对应的哈希槽，然后再查询哈希槽和节点的映射关系，即可找到目标节点。</p><h1 id="5-Redis-Cluster扩容期间可以提供服务吗？-key所在的哈希槽正在迁移怎么办-如何确定key应该分布到哪个哈希槽？"><a href="#5-Redis-Cluster扩容期间可以提供服务吗？-key所在的哈希槽正在迁移怎么办-如何确定key应该分布到哪个哈希槽？" class="headerlink" title="5. Redis Cluster扩容期间可以提供服务吗？&#x2F;key所在的哈希槽正在迁移怎么办&#x2F;如何确定key应该分布到哪个哈希槽？"></a>5. Redis Cluster扩容期间可以提供服务吗？&#x2F;key所在的哈希槽正在迁移怎么办&#x2F;如何确定key应该分布到哪个哈希槽？</h1><p>Redis Cluster扩容和缩容的本质是进行重新分片，动态迁移哈希槽。<br>能够保证Redis扩容期间依然能够对外提供正常服务，提供了重定向机制：</p><ol><li>ASK重定向：临时重定向，查询发送旧节点</li><li>MOVED重定向：永久重定向，后续查询发送新节点</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>redis</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试题</tag>
+      
+      <tag>redis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>算法通关村第二关——终于学会链表反转了</title>
     <link href="/post/e58bcd03.html"/>
     <url>/post/e58bcd03.html</url>
