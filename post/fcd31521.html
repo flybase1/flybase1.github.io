@@ -16,27 +16,27 @@
   <meta name="author" content="FlyCode">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. API签名认证判断当前的用户是否符合要求，通过使用ak，sk进行验证是否有权限访问当前接口  发送签名 使用签名  2. 如何实现accessKey:  标识（复杂，无序，不易破解） secretKey： 通过ak进行判断传递的sk和数据库的sk是否一致，密钥。 3. 模拟发送请求请求头传递 123456789@PostMapping( &quot;&#x2F;user&quot; )    publ">
+    <meta name="description" content="1. Spring AOP1.1谈谈对spring aop的理解主要是用于将那些与业务无关，被业务模块所共用的逻辑封装起来，减少系统的重复代码，降低耦合度，便于可拓展性。Spring AOP是基于动态代理的，如果代理的对象实现了某个接口，那么就采用jdk动态代理，创建代理对象，对于没有实现接口的对象，使用cglib生成被代理对象的子类作为代理。 1.2 Spring AOP和AspectJ AOP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="API项目签名认证">
-<meta property="og:url" content="http://flybase1.github.io/post/a9ae1af2.html">
+<meta property="og:title" content="Spring面试题-2">
+<meta property="og:url" content="http://flybase1.github.io/post/fcd31521.html">
 <meta property="og:site_name" content="FlyCode的个人博客">
-<meta property="og:description" content="1. API签名认证判断当前的用户是否符合要求，通过使用ak，sk进行验证是否有权限访问当前接口  发送签名 使用签名  2. 如何实现accessKey:  标识（复杂，无序，不易破解） secretKey： 通过ak进行判断传递的sk和数据库的sk是否一致，密钥。 3. 模拟发送请求请求头传递 123456789@PostMapping( &quot;&#x2F;user&quot; )    publ">
+<meta property="og:description" content="1. Spring AOP1.1谈谈对spring aop的理解主要是用于将那些与业务无关，被业务模块所共用的逻辑封装起来，减少系统的重复代码，降低耦合度，便于可拓展性。Spring AOP是基于动态代理的，如果代理的对象实现了某个接口，那么就采用jdk动态代理，创建代理对象，对于没有实现接口的对象，使用cglib生成被代理对象的子类作为代理。 1.2 Spring AOP和AspectJ AOP">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://flybase1.github.io/images/api_project_sign_1.png">
-<meta property="article:published_time" content="2023-07-22T13:16:24.000Z">
-<meta property="article:modified_time" content="2023-07-22T13:19:18.805Z">
+<meta property="og:image" content="http://flybase1.github.io/images/smst-2-1.png">
+<meta property="article:published_time" content="2023-07-24T07:51:00.000Z">
+<meta property="article:modified_time" content="2023-07-24T08:11:49.286Z">
 <meta property="article:author" content="FlyCode">
-<meta property="article:tag" content="签名认证">
-<meta property="article:tag" content="Hutool">
+<meta property="article:tag" content="面试题">
+<meta property="article:tag" content="spring">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://flybase1.github.io/images/api_project_sign_1.png">
+<meta name="twitter:image" content="http://flybase1.github.io/images/smst-2-1.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>API项目签名认证 - FlyCode的个人博客</title>
+  <title>Spring面试题-2 - FlyCode的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="API项目签名认证"></span>
+            <span id="subtitle" data-typed-text="Spring面试题-2"></span>
           
         </div>
 
@@ -213,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-22 21:16" pubdate>
-          2023年7月22日 晚上
+        <time datetime="2023-07-24 15:51" pubdate>
+          2023年7月24日 下午
         </time>
       </span>
     
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          2.2k 字
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          13 分钟
+          19 分钟
         
       </span>
     
@@ -281,50 +281,68 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">API项目签名认证</h1>
+            <h1 id="seo-header">Spring面试题-2</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="1-API签名认证"><a href="#1-API签名认证" class="headerlink" title="1. API签名认证"></a>1. API签名认证</h1><p>判断当前的用户是否符合要求，通过使用ak，sk进行验证是否有权限访问当前接口</p>
-<ol>
-<li>发送签名</li>
-<li>使用签名</li>
+                <h1 id="1-Spring-AOP"><a href="#1-Spring-AOP" class="headerlink" title="1. Spring AOP"></a>1. Spring AOP</h1><h2 id="1-1谈谈对spring-aop的理解"><a href="#1-1谈谈对spring-aop的理解" class="headerlink" title="1.1谈谈对spring aop的理解"></a>1.1谈谈对spring aop的理解</h2><p>主要是用于将那些与业务无关，被业务模块所共用的逻辑封装起来，减少系统的重复代码，降低耦合度，便于可拓展性。<br>Spring AOP是基于动态代理的，如果代理的对象实现了某个接口，那么就采用jdk动态代理，创建代理对象，对于没有实现接口的对象，使用cglib生成被代理对象的子类作为代理。</p>
+<h2 id="1-2-Spring-AOP和AspectJ-AOP有什么区别？"><a href="#1-2-Spring-AOP和AspectJ-AOP有什么区别？" class="headerlink" title="1.2 Spring AOP和AspectJ AOP有什么区别？"></a>1.2 Spring AOP和AspectJ AOP有什么区别？</h2><ol>
+<li>Spring AOP是运行时增强，而AspectJ AOP是编译时增强。</li>
+<li>Spring AOP基于动态代理，而AspectJ AOP是基于字节码操作。</li>
+<li>Spring AOP集成了AspectJ AOP。</li>
 </ol>
-<h1 id="2-如何实现"><a href="#2-如何实现" class="headerlink" title="2. 如何实现"></a>2. 如何实现</h1><p>accessKey:  标识（复杂，无序，不易破解）</p>
-<p>secretKey： 通过ak进行判断传递的sk和数据库的sk是否一致，密钥。</p>
-<h1 id="3-模拟发送请求"><a href="#3-模拟发送请求" class="headerlink" title="3. 模拟发送请求"></a>3. 模拟发送请求</h1><p>请求头传递</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@PostMapping( &quot;/user&quot; )</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getNameByPostJson</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> User user, HttpServletRequest request)</span> &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">accessKey</span> <span class="hljs-operator">=</span> request.getHeader(<span class="hljs-string">&quot;accessKey&quot;</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">secretKey</span> <span class="hljs-operator">=</span> request.getHeader(<span class="hljs-string">&quot;secretKey&quot;</span>);<br>        <span class="hljs-keyword">if</span> (!accessKey.equals(<span class="hljs-string">&quot;fly&quot;</span>) || !secretKey.equals(<span class="hljs-string">&quot;12345&quot;</span>)) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(<span class="hljs-string">&quot;error&quot;</span>);<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Post your name=&gt;&quot;</span> + user.getName();<br>    &#125;<br></code></pre></td></tr></table></figure>
-
-<p>添加请求头</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> Map&lt;String, Object&gt; <span class="hljs-title function_">getHeaders</span><span class="hljs-params">()</span> &#123;<br>    Map&lt;String, Object&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>    map.put(<span class="hljs-string">&quot;accessKey&quot;</span>, <span class="hljs-string">&quot;fly&quot;</span>);<br>    map.put(<span class="hljs-string">&quot;secretKey&quot;</span>, <span class="hljs-string">&quot;12345&quot;</span>);<br>    <span class="hljs-keyword">return</span> map;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>改造post</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// post传对象</span><br><span class="hljs-keyword">public</span> String <span class="hljs-title function_">getNameByPostJson</span><span class="hljs-params">(User user)</span> &#123;<br>    <span class="hljs-type">String</span> <span class="hljs-variable">json</span> <span class="hljs-operator">=</span> JSONUtil.toJsonStr(user);<br>    <span class="hljs-type">HttpResponse</span> <span class="hljs-variable">response</span> <span class="hljs-operator">=</span> HttpRequest<br>            .post(HTTP_URL + <span class="hljs-string">&quot;/name/user&quot;</span>)<br>            .addHeaders(getHeaders())<br>            .body(json)<br>            .execute();<br>    System.out.println(<span class="hljs-string">&quot;json_user_status=&gt;&quot;</span> + response.getStatus());<br>    <span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> response.body();<br>    System.out.println(<span class="hljs-string">&quot;json=&gt;&quot;</span> + result);<br>    System.out.println(<span class="hljs-string">&quot;&quot;</span>);<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>使用断点查看<br><img src="/images/api_project_sign_1.png" srcset="/img/loading.gif" lazyload alt="img.png"></p>
-<p>缺点：</p>
-<p>将ak，sk直接在服务端传递时不安全的</p>
-<h1 id="4-解决方案"><a href="#4-解决方案" class="headerlink" title="4. 解决方案"></a>4. 解决方案</h1><p>加密方式：对称加密，非对称加密，公钥加密，私钥解密，单项加密，mid5加密</p>
-<p>采用mid5加密，不可解密</p>
-<p>加密方式：</p>
-<p>用户传递参数+密钥 &#x3D;&gt; 签名算法&#x3D;&gt;不可解密</p>
-<p>abc+df&#x3D;&gt;123123dsada</p>
-<p>解析密码：</p>
-<p>服务端采用同样的方式生成签名算法</p>
-<p>怎么防止重放</p>
-<ol>
-<li>使用随机数（只能使用一次），但是后端要保存使用的随机数</li>
-<li>timestamp时间戳，判断时间相差是否小于5min，校验是否过期</li>
+<h2 id="1-3-AspectJ定义的通知类型有哪些？"><a href="#1-3-AspectJ定义的通知类型有哪些？" class="headerlink" title="1.3 AspectJ定义的通知类型有哪些？"></a>1.3 AspectJ定义的通知类型有哪些？</h2><ol>
+<li>Before：前置通知，目标对象的方法调用前</li>
+<li>After：后置通知，目标对象的方法调用后</li>
+<li>AfterReturn：返回通知，目标对象的方法调用成功返回结果时候触发</li>
+<li>AfterThrowing：异常通知，目标对象抛出异常后触发。</li>
+<li>Around：环绕通知，编程式控制目标对象。操作范围最大的。</li>
 </ol>
-<p>参数选取：</p>
+<h2 id="1-4-多个切面的执行顺序如何控制？"><a href="#1-4-多个切面的执行顺序如何控制？" class="headerlink" title="1.4 多个切面的执行顺序如何控制？"></a>1.4 多个切面的执行顺序如何控制？</h2><ol>
+<li>使用@Order</li>
+<li>实现Ordered重写getOrder方法</li>
+</ol>
+<h1 id="2-Spring-MVC"><a href="#2-Spring-MVC" class="headerlink" title="2. Spring MVC"></a>2. Spring MVC</h1><h2 id="2-1-谈谈对于Spring-MVC的理解。"><a href="#2-1-谈谈对于Spring-MVC的理解。" class="headerlink" title="2.1 谈谈对于Spring MVC的理解。"></a>2.1 谈谈对于Spring MVC的理解。</h2><p>MVC分成三部分模型，视图，控制器。将业务逻辑，数据，显示分离。</p>
+<h2 id="2-2-Spring-MVC核心组件有哪些？"><a href="#2-2-Spring-MVC核心组件有哪些？" class="headerlink" title="2.2 Spring MVC核心组件有哪些？"></a>2.2 Spring MVC核心组件有哪些？</h2><ol>
+<li><strong>DispatcherServlet</strong>:  核心的中央处理器，主要是负责接收请求，分发，响应客户端。</li>
+<li><strong>HandlerMapping</strong>：处理器映射器，主要是根据uri匹配查找能够处理的Handler，并将请求涉及的拦截器和Handler进行封装。</li>
+<li><strong>HandlerAdapter</strong>：处理器适配器，主要是根据HandlerMapping找到handler，适配对应的handler。</li>
+<li><strong>Handler</strong>：请求处理器，处理实际请求。</li>
+<li><strong>ViewResolver</strong>: 视图解析器，根据Handler返回的视图，解析渲染真正的视图，传递给DispatcherServlet相应客户端</li>
+</ol>
+<h2 id="2-3-Spring-MVC-工作原理"><a href="#2-3-Spring-MVC-工作原理" class="headerlink" title="2.3 Spring MVC 工作原理"></a>2.3 Spring MVC 工作原理</h2><p><img src="/images/smst-2-1.png" srcset="/img/loading.gif" lazyload alt="img.png"></p>
 <ol>
-<li>accessKey</li>
-<li>secretKey</li>
-<li>用户请求参数</li>
-<li>签名（加密算法）</li>
-<li>nonce随机数</li>
-<li>timestamp时间戳</li>
+<li>客户端发送请求，DispatcherServlet进行拦截。</li>
+<li>DispatcherServlet根据请求调用HandlerMapping。HandlerMapping根据对应的uri匹配查找能够处理handler，然后将涉及到的拦截器与handler进行封装。</li>
+<li>调用HandlerAdapter，根据HandlerMapping里面找到的handler去找到适配的handler执行。</li>
+<li>handler完成对用户的请求，返回ModelView数据给 DispatcherServlet。</li>
+<li>ViewResolver：根据逻辑view查找实际的view。</li>
+<li>DispatcherServlet将Model传给View</li>
+<li>把View返回请求者</li>
+</ol>
+<h2 id="2-4-统一异常处理怎么做？"><a href="#2-4-统一异常处理怎么做？" class="headerlink" title="2.4 统一异常处理怎么做？"></a>2.4 统一异常处理怎么做？</h2><p>使用注解@ControllerAdvice(类)+@ExecptionHandler（方法）<br>会将指定的Controller织入异常的逻辑AOP，当Controller抛出异常的时候，被@ExceptionHandler修饰的方法处理。</p>
+<p>里面的getMappedMethod()会先找到可以匹配的处理异常的所有方法信息，然后对其进行从小到大的排序，取出最小的匹配方法（匹配度最高的）。</p>
+<h1 id="3-Spring-使用到的设计模式"><a href="#3-Spring-使用到的设计模式" class="headerlink" title="3.  Spring 使用到的设计模式"></a>3.  Spring 使用到的设计模式</h1><ol>
+<li>控制反转和依赖注入：IOC是一个原则，并不是模式，主要是将手动创建的控制权交给Spring进行管理，只需要写好配置文件，不需要直到用户是如何创建出来的；依赖注入是实现控制反转的一种设计模式，将实例变量传递到对象中去。</li>
+<li>工厂设计模式：可以使用BeanFactory或者ApplicationContext创建Bean对象。<br>  2.1 BeanFactory是延迟注入，只有使用到这个Bean的时候才会注入，占用内存小<br>  2.2 ApplicationContext：启动的时候会一次性创建所有的Bean。</li>
+<li>单例设计模式：Spring里面的Bean默认都是单例的</li>
+<li>代理设计模式：Spring AOP和AspectJ AOP</li>
+<li>模板设计模式：定义一个算法骨架，将一些步骤延迟到子类里面。使子类不需要改变一个算法结构就能重新定义某些步骤的算法。JDBCTemplate等操作数据的类。</li>
+<li>观察者模型：Spring事件驱动模型。</li>
+<li>适配器模式：使接口不兼容的类一起工作。Spring AOP(增强，通知)和Spring MVC（Handler Adapter）</li>
+<li>装饰者模式：动态的给对象添加一些额外的功能和属性。InputStream家族。配置DataSource</li>
+</ol>
+<h1 id="4-Spring事务"><a href="#4-Spring事务" class="headerlink" title="4. Spring事务"></a>4. Spring事务</h1><h2 id="4-1-Spring管理事务有哪几种方式？"><a href="#4-1-Spring管理事务有哪几种方式？" class="headerlink" title="4.1 Spring管理事务有哪几种方式？"></a>4.1 Spring管理事务有哪几种方式？</h2><ol>
+<li>编程式事务：在代码里面硬编码，使用TransactionTemplate或者TransactionManager手动管理事务，很少使用。</li>
+<li>声明式事务：xml或者基于注解，通过AOP实现（基于@Transactional注解）</li>
+</ol>
+<h2 id="4-2-Spring事务中有哪几种事务传播行为？"><a href="#4-2-Spring事务中有哪几种事务传播行为？" class="headerlink" title="4.2 Spring事务中有哪几种事务传播行为？"></a>4.2 Spring事务中有哪几种事务传播行为？</h2><p>主要是解决业务层方法之间相互调用的问题。</p>
+<ol>
+<li>required: 存在事务，则加入该事务，没有事务，创建新的事务。</li>
+<li>required_new: 创建一个新的事务，如果存在事务，就把这个事务挂起。</li>
+<li>nested：存在事务，就创建一个事务作为当前事务的嵌套事务来执行。不存在事务们就是required。</li>
+<li>mandatory：存在事务，加入该事务，不存在该事务，报异常。</li>
 </ol>
 
                 
@@ -344,7 +362,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Hutool/" class="category-chain-item">Hutool</a>
+  <a href="/categories/spring/" class="category-chain-item">spring</a>
   
   
 
@@ -359,9 +377,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%AD%BE%E5%90%8D%E8%AE%A4%E8%AF%81/" class="print-no-link">#签名认证</a>
+        <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="print-no-link">#面试题</a>
       
-        <a href="/tags/Hutool/" class="print-no-link">#Hutool</a>
+        <a href="/tags/spring/" class="print-no-link">#spring</a>
       
     </div>
   
@@ -373,8 +391,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>API项目签名认证</div>
-      <div>http://flybase1.github.io/post/a9ae1af2.html</div>
+      <div>Spring面试题-2</div>
+      <div>http://flybase1.github.io/post/fcd31521.html</div>
     </div>
     <div class="license-meta">
       
@@ -386,7 +404,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年7月22日</div>
+          <div>2023年7月24日</div>
         </div>
       
       
@@ -418,18 +436,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/fcd31521.html" title="Spring面试题-2">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Spring面试题-2</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/post/22eee5d7.html" title="API项目调用第三方HTTP请求-Hutool">
-                        <span class="hidden-mobile">API项目调用第三方HTTP请求-Hutool</span>
+                      <a href="/post/a9ae1af2.html" title="API项目签名认证">
+                        <span class="hidden-mobile">API项目签名认证</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
