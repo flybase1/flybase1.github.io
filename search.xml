@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>SpringBoot面试题-2</title>
+      <link href="/post/ceb4123b.html"/>
+      <url>/post/ceb4123b.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-Spring-boot内置Tomcat启动原理？"><a href="#1-Spring-boot内置Tomcat启动原理？" class="headerlink" title="1. Spring boot内置Tomcat启动原理？"></a>1. Spring boot内置Tomcat启动原理？</h1><ol><li>自动配置类中启动内嵌tomcat，配置tomcat服务工程</li><li>spring boot 启动，会创建spring容器</li><li>调用refresh方法，加载ioc容器</li><li>解析自动配置类</li><li>获得tomcat的工厂</li><li>getWebServer启动tomcat</li></ol><h1 id="2-Spring-boot外部Tomcat启动原理？"><a href="#2-Spring-boot外部Tomcat启动原理？" class="headerlink" title="2. Spring boot外部Tomcat启动原理？"></a>2. Spring boot外部Tomcat启动原理？</h1><p>打包外部服务器，将jar换成war，然后排除spring boot里面的tomcat，创建类继承SpringBootServerInitializer, 重写configure</p><h1 id="3-自己定义stater？大概实现过程。"><a href="#3-自己定义stater？大概实现过程。" class="headerlink" title="3. 自己定义stater？大概实现过程。"></a>3. 自己定义stater？大概实现过程。</h1><ol><li>删除build</li><li>引入processor依赖</li><li>删除stater</li><li>新建META-INF&#x2F;spring.factories</li><li>org.springframework.boot.autoconfigure.EnableAutoConfiguration&#x3D;配置文件地址</li></ol><h1 id="4-Spring-Boot读取配置文件的原理？加载顺序是什么？"><a href="#4-Spring-Boot读取配置文件的原理？加载顺序是什么？" class="headerlink" title="4. Spring Boot读取配置文件的原理？加载顺序是什么？"></a>4. Spring Boot读取配置文件的原理？加载顺序是什么？</h1><p>通过事件监听读取配置文件：ConfigFileApplicationListener<br>顺序：</p><ol><li>file: .&#x2F;config</li><li>file: .&#x2F;config&#x2F;{@literal *}</li><li>file: .</li><li>classpath: config</li><li>classpath:<br>高优先级覆盖低优先级。</li></ol><h1 id="5-Spring-Boot默认日志实现框架？怎么切换成其他框架。"><a href="#5-Spring-Boot默认日志实现框架？怎么切换成其他框架。" class="headerlink" title="5. Spring Boot默认日志实现框架？怎么切换成其他框架。"></a>5. Spring Boot默认日志实现框架？怎么切换成其他框架。</h1><p>默认logback<br>添加sl4j桥接器和适配器<br>只需要将logback排除依赖</p><h1 id="6-如何提高spring-boot加载速度？"><a href="#6-如何提高spring-boot加载速度？" class="headerlink" title="6. 如何提高spring boot加载速度？"></a>6. 如何提高spring boot加载速度？</h1><ol><li>开启懒加载   spring.main.lazy-initialization:true,能够快速1-2s</li><li>创建扫描索引，spring-context-indexer, 启动类上加入@Index</li><li>jdk17&#x2F;Spring boot3</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> SpringBoot </category>
+          
+          <category> 面试题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> SpringBoot </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SpringBoot面试题-1</title>
       <link href="/post/57bd4381.html"/>
       <url>/post/57bd4381.html</url>

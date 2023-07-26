@@ -16,15 +16,15 @@
   <meta name="author" content="FlyCode">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. Spring boot可以同时处理多少个请求？有最大连接数：max-connections（8192）和最大等待数 accept-count （100）之和.里面还有两个参数threads.min-spare（最小线程工作数），和threads.max(最大线程工作数) 2. Spring boot有哪些特性。快速开发spring应用的脚手架，简化应用初始搭建以及开发过程  内置stater">
+    <meta name="description" content="1. Spring boot内置Tomcat启动原理？ 自动配置类中启动内嵌tomcat，配置tomcat服务工程 spring boot 启动，会创建spring容器 调用refresh方法，加载ioc容器 解析自动配置类 获得tomcat的工厂 getWebServer启动tomcat  2. Spring boot外部Tomcat启动原理？打包外部服务器，将jar换成war，然后排除spri">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot面试题-1">
-<meta property="og:url" content="http://flybase1.github.io/post/57bd4381.html">
+<meta property="og:title" content="SpringBoot面试题-2">
+<meta property="og:url" content="http://flybase1.github.io/post/ceb4123b.html">
 <meta property="og:site_name" content="FlyCode的个人博客">
-<meta property="og:description" content="1. Spring boot可以同时处理多少个请求？有最大连接数：max-connections（8192）和最大等待数 accept-count （100）之和.里面还有两个参数threads.min-spare（最小线程工作数），和threads.max(最大线程工作数) 2. Spring boot有哪些特性。快速开发spring应用的脚手架，简化应用初始搭建以及开发过程  内置stater">
+<meta property="og:description" content="1. Spring boot内置Tomcat启动原理？ 自动配置类中启动内嵌tomcat，配置tomcat服务工程 spring boot 启动，会创建spring容器 调用refresh方法，加载ioc容器 解析自动配置类 获得tomcat的工厂 getWebServer启动tomcat  2. Spring boot外部Tomcat启动原理？打包外部服务器，将jar换成war，然后排除spri">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-25T07:51:28.000Z">
-<meta property="article:modified_time" content="2023-07-25T08:07:33.840Z">
+<meta property="article:published_time" content="2023-07-26T06:38:25.000Z">
+<meta property="article:modified_time" content="2023-07-26T06:49:58.746Z">
 <meta property="article:author" content="FlyCode">
 <meta property="article:tag" content="面试题">
 <meta property="article:tag" content="SpringBoot">
@@ -34,7 +34,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>SpringBoot面试题-1 - FlyCode的个人博客</title>
+  <title>SpringBoot面试题-2 - FlyCode的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="SpringBoot面试题-1"></span>
+            <span id="subtitle" data-typed-text="SpringBoot面试题-2"></span>
           
         </div>
 
@@ -211,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-07-25 15:51" pubdate>
-          2023年7月25日 下午
+        <time datetime="2023-07-26 14:38" pubdate>
+          2023年7月26日 下午
         </time>
       </span>
     
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          774 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          13 分钟
+          7 分钟
         
       </span>
     
@@ -279,52 +279,40 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">SpringBoot面试题-1</h1>
+            <h1 id="seo-header">SpringBoot面试题-2</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="1-Spring-boot可以同时处理多少个请求？"><a href="#1-Spring-boot可以同时处理多少个请求？" class="headerlink" title="1. Spring boot可以同时处理多少个请求？"></a>1. Spring boot可以同时处理多少个请求？</h1><p>有最大连接数：max-connections（8192）和最大等待数 accept-count （100）之和.<br>里面还有两个参数threads.min-spare（最小线程工作数），和threads.max(最大线程工作数)</p>
-<h1 id="2-Spring-boot有哪些特性。"><a href="#2-Spring-boot有哪些特性。" class="headerlink" title="2. Spring boot有哪些特性。"></a>2. Spring boot有哪些特性。</h1><p>快速开发spring应用的脚手架，简化应用初始搭建以及开发过程</p>
+                <h1 id="1-Spring-boot内置Tomcat启动原理？"><a href="#1-Spring-boot内置Tomcat启动原理？" class="headerlink" title="1. Spring boot内置Tomcat启动原理？"></a>1. Spring boot内置Tomcat启动原理？</h1><ol>
+<li>自动配置类中启动内嵌tomcat，配置tomcat服务工程</li>
+<li>spring boot 启动，会创建spring容器</li>
+<li>调用refresh方法，加载ioc容器</li>
+<li>解析自动配置类</li>
+<li>获得tomcat的工厂</li>
+<li>getWebServer启动tomcat</li>
+</ol>
+<h1 id="2-Spring-boot外部Tomcat启动原理？"><a href="#2-Spring-boot外部Tomcat启动原理？" class="headerlink" title="2. Spring boot外部Tomcat启动原理？"></a>2. Spring boot外部Tomcat启动原理？</h1><p>打包外部服务器，将jar换成war，然后排除spring boot里面的tomcat，创建类继承SpringBootServerInitializer, 重写configure</p>
+<h1 id="3-自己定义stater？大概实现过程。"><a href="#3-自己定义stater？大概实现过程。" class="headerlink" title="3. 自己定义stater？大概实现过程。"></a>3. 自己定义stater？大概实现过程。</h1><ol>
+<li>删除build</li>
+<li>引入processor依赖</li>
+<li>删除stater</li>
+<li>新建META-INF&#x2F;spring.factories</li>
+<li>org.springframework.boot.autoconfigure.EnableAutoConfiguration&#x3D;配置文件地址</li>
+</ol>
+<h1 id="4-Spring-Boot读取配置文件的原理？加载顺序是什么？"><a href="#4-Spring-Boot读取配置文件的原理？加载顺序是什么？" class="headerlink" title="4. Spring Boot读取配置文件的原理？加载顺序是什么？"></a>4. Spring Boot读取配置文件的原理？加载顺序是什么？</h1><p>通过事件监听读取配置文件：ConfigFileApplicationListener<br>顺序：</p>
 <ol>
-<li>内置stater结合自动配置</li>
-<li>简化开发，xml配置少了</li>
-<li>内置web容器无需依赖外部服务器</li>
-<li>管理常用第三方依赖</li>
-<li>自带监控</li>
+<li>file: .&#x2F;config</li>
+<li>file: .&#x2F;config&#x2F;{@literal *}</li>
+<li>file: .</li>
+<li>classpath: config</li>
+<li>classpath:<br>高优先级覆盖低优先级。</li>
 </ol>
-<h1 id="3-Spring-boot的-SpringBootApplication-注解？"><a href="#3-Spring-boot的-SpringBootApplication-注解？" class="headerlink" title="3. Spring boot的@SpringBootApplication 注解？"></a>3. Spring boot的@SpringBootApplication 注解？</h1><p>核心部分</p>
-<ol>
-<li>EnableAutoConfiguration: 启动spring boot的自动配置机制。</li>
-<li>ComponentScan：扫描被@Componet注解的bean，扫描包下所有的类。</li>
-<li>Configuration：允许上下文注册额外的bean或者导入其他的配置类。</li>
-</ol>
-<h1 id="4-什么是Spring-boot自动装配？"><a href="#4-什么是Spring-boot自动装配？" class="headerlink" title="4. 什么是Spring boot自动装配？"></a>4. 什么是Spring boot自动装配？</h1><p>Spring Boot定义了一套配置文件：Spring boot 启动时会自动扫描jar里面的META-InF&#x2F;spring.factories文件，然后将信息加载到Spring容器，执行类中操作。<br>简单来说：就是通过注解或者简单的配置就能在Spring boot的帮助下实现某块功能。</p>
-<h1 id="5-Spring-boot是如何实现自动装配的？"><a href="#5-Spring-boot是如何实现自动装配的？" class="headerlink" title="5. Spring boot是如何实现自动装配的？"></a>5. Spring boot是如何实现自动装配的？</h1><p>总结：</p>
-<ol>
-<li>首先通过@SpringBootConfiguration引入@EnableAutoConfiguration(自动配置功能)</li>
-<li>@EnableAutoConfiguration引入@Import</li>
-<li>Spring 容器启动时候会解析@Import</li>
-<li>@Import导入DeferredImportSelector，使得spring boot自动配置类的顺序在最后，方便扩展。</li>
-<li>读出META-INF里面的spring.factories文件</li>
-<li>过滤出所有的AutoConfigurationClass类型的类</li>
-<li>通过@ConditionOnxxx排除无效的自动配置类</li>
-</ol>
-<h1 id="6-spring-factories每次启动都需要进行加载吗？"><a href="#6-spring-factories每次启动都需要进行加载吗？" class="headerlink" title="6. spring.factories每次启动都需要进行加载吗？"></a>6. spring.factories每次启动都需要进行加载吗？</h1><p>只有满足@ConditionalOnxxx的所有条件，该类才会生效。</p>
-<h1 id="7-为什么Spring-boot的jar可以直接运行？"><a href="#7-为什么Spring-boot的jar可以直接运行？" class="headerlink" title="7. 为什么Spring boot的jar可以直接运行？"></a>7. 为什么Spring boot的jar可以直接运行？</h1><ol>
-<li>Spring boot提供了一个插件spring-boot-maven-plugin用于打包程序为一个jar文件</li>
-<li>打包之后会生成Fat jar，包含应用依赖的jar包和Spring Boot loader相关的类。</li>
-<li>java -jar会找到jar里面的mainfest文件，找到里面的真正启动类。</li>
-<li>Fat jar 的启动Main函数是JarLauncher,负责创建LaunchedURLClassLoader来加载boot-lib里面的jar，已新线程启动应用的启动类的Main函数（找到mainfest里面的stater-class）。</li>
-</ol>
-<h1 id="8-Spring-boot的启动原理？"><a href="#8-Spring-boot的启动原理？" class="headerlink" title="8. Spring boot的启动原理？"></a>8. Spring boot的启动原理？</h1><ol>
-<li>运行main方法，初始化SpringApplication，从spring.factories读取listener，ApplicationContextInitializlizer</li>
-<li>运行run方法</li>
-<li>读取环境变量，配置信息</li>
-<li>创建springApplication上下文：ServletWebServerApplicationContext</li>
-<li>预初始化上下文：读取启动类</li>
-<li>调用refresh加载ioc容器，加载自动配置类，创建servlet容器</li>
-<li>这个过程springboot会调用很多的监听器对外扩展。</li>
+<h1 id="5-Spring-Boot默认日志实现框架？怎么切换成其他框架。"><a href="#5-Spring-Boot默认日志实现框架？怎么切换成其他框架。" class="headerlink" title="5. Spring Boot默认日志实现框架？怎么切换成其他框架。"></a>5. Spring Boot默认日志实现框架？怎么切换成其他框架。</h1><p>默认logback<br>添加sl4j桥接器和适配器<br>只需要将logback排除依赖</p>
+<h1 id="6-如何提高spring-boot加载速度？"><a href="#6-如何提高spring-boot加载速度？" class="headerlink" title="6. 如何提高spring boot加载速度？"></a>6. 如何提高spring boot加载速度？</h1><ol>
+<li>开启懒加载   spring.main.lazy-initialization:true,能够快速1-2s</li>
+<li>创建扫描索引，spring-context-indexer, 启动类上加入@Index</li>
+<li>jdk17&#x2F;Spring boot3</li>
 </ol>
 
                 
@@ -380,8 +368,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>SpringBoot面试题-1</div>
-      <div>http://flybase1.github.io/post/57bd4381.html</div>
+      <div>SpringBoot面试题-2</div>
+      <div>http://flybase1.github.io/post/ceb4123b.html</div>
     </div>
     <div class="license-meta">
       
@@ -393,7 +381,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年7月25日</div>
+          <div>2023年7月26日</div>
         </div>
       
       
@@ -425,18 +413,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/ceb4123b.html" title="SpringBoot面试题-2">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SpringBoot面试题-2</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/post/97accc07.html" title="API项目开发自定义stater">
-                        <span class="hidden-mobile">API项目开发自定义stater</span>
+                      <a href="/post/57bd4381.html" title="SpringBoot面试题-1">
+                        <span class="hidden-mobile">SpringBoot面试题-1</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
