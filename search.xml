@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>SpringCloudGateway使用</title>
+      <link href="/post/b4aab894.html"/>
+      <url>/post/b4aab894.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-官网"><a href="#1-官网" class="headerlink" title="1. 官网"></a>1. 官网</h1><p><a href="https://spring.io/projects/spring-cloud-gateway">https://spring.io/projects/spring-cloud-gateway</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> SpringCloudGateway </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SpringCloudGateway </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>网关的作用</title>
+      <link href="/post/ca5906c9.html"/>
+      <url>/post/ca5906c9.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-作用"><a href="#1-作用" class="headerlink" title="1. 作用"></a>1. 作用</h1><ol><li>路由</li><li>鉴权</li><li>缓存</li><li>跨域</li><li>流量染色</li><li>访问控制</li><li>统一业务处理</li><li>负载均衡</li><li>发布控制</li><li>统一日志</li><li>统一文档</li><li>业务保护<ol><li>限制请求</li><li>信息脱敏</li><li>降级（熔断）</li><li>限流</li><li>超时时间</li></ol></li></ol><h1 id="2-路由"><a href="#2-路由" class="headerlink" title="2. 路由"></a>2. 路由</h1><p>起到转发作用，将请求转发到对应的接口、服务器、集群</p><h1 id="3-负载均衡"><a href="#3-负载均衡" class="headerlink" title="3. 负载均衡"></a>3. 负载均衡</h1><p>在路由的基础上，可以随机转发到某一台机器。</p><h1 id="4-鉴权"><a href="#4-鉴权" class="headerlink" title="4. 鉴权"></a>4. 鉴权</h1><p>判断用户是否有权限进行操作，无论访问什么接口，都能够统一判断。</p><h1 id="5-统一处理跨域"><a href="#5-统一处理跨域" class="headerlink" title="5. 统一处理跨域"></a>5. 统一处理跨域</h1><p>统一处理跨域，不用再某个项目里面单独写。</p><h1 id="6-统一业务处理"><a href="#6-统一业务处理" class="headerlink" title="6. 统一业务处理"></a>6. 统一业务处理</h1><p>统一处理业务，把每个项目都要用到的通用逻辑都放到上层里面去统一处理，比如调用次数</p><h1 id="7-访问控制"><a href="#7-访问控制" class="headerlink" title="7. 访问控制"></a>7. 访问控制</h1><p>黑白名单，比如限制DDOs IP</p><h1 id="8-发布控制"><a href="#8-发布控制" class="headerlink" title="8. 发布控制"></a>8. 发布控制</h1><p>局部试错，比如添加了新接口，给老接口分配80%流量，新接口20%，然后逐步过渡到新接口</p><h1 id="9-流量染色"><a href="#9-流量染色" class="headerlink" title="9. 流量染色"></a>9. 流量染色</h1><p>区分用户的来源，判断用户是否从网关来的<br>给请求添加一些标识，一般是设置请求头</p><h1 id="10-接口保护"><a href="#10-接口保护" class="headerlink" title="10. 接口保护"></a>10. 接口保护</h1><ol><li>限制请求</li><li>信息脱敏</li><li>降级（熔断）</li><li>限流</li><li>超时时间</li></ol><h1 id="11-统一日志"><a href="#11-统一日志" class="headerlink" title="11. 统一日志"></a>11. 统一日志</h1><p>统一的请求响应信息记录</p><h1 id="12-统一文档"><a href="#12-统一文档" class="headerlink" title="12. 统一文档"></a>12. 统一文档</h1><p>将下游项目的文档进行聚合，在同一个界面进行查看</p><h1 id="13-网关分类"><a href="#13-网关分类" class="headerlink" title="13. 网关分类"></a>13. 网关分类</h1><ol><li>业务网关（微服务网关）：负载均衡</li><li>全局网关（层级更高）：将一些业务逻辑，将一些请求转发到不同的接口&#x2F;业务&#x2F;服务器</li></ol><h1 id="14-实现"><a href="#14-实现" class="headerlink" title="14. 实现"></a>14. 实现</h1><ol><li>nginx、kong（API服务）</li><li>Spring cloud gateway<br><a href="https://blog.csdn.net/qq_21040559/article/details/122961395">https://blog.csdn.net/qq_21040559/article/details/122961395</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网关 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网关 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>算法通关村——双指针的妙用</title>
       <link href="/post/ed7b56c1.html"/>
       <url>/post/ed7b56c1.html</url>
