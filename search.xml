@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Mybatis面试题-1</title>
+      <link href="/post/93a5a64.html"/>
+      <url>/post/93a5a64.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-和-区别"><a href="#1-和-区别" class="headerlink" title="1. #{}和${}区别"></a>1. #{}和${}区别</h1><p>${}是Properties文件的变量占位符，静态文本替换，容易出现sql注入<br>\ #{}是sql的参数占位符，将参数替换为?，可以防止sql注入。sql执行前会使用PreparedStatement，使用反射从参数对象获取item的相关值</p><h1 id="2-XML映射文件，除了常见的select，insert，update，delete，还有哪些标签。"><a href="#2-XML映射文件，除了常见的select，insert，update，delete，还有哪些标签。" class="headerlink" title="2. XML映射文件，除了常见的select，insert，update，delete，还有哪些标签。"></a>2. XML映射文件，除了常见的select，insert，update，delete，还有哪些标签。</h1><ol><li><ResultMap></ResultMap></li><li><ParamaterMap></ParamaterMap></li><li><sql> sql的片段标签</sql></li><li><include> 标签引入sql片段</include></li><li><selectKey> 为不支持自增的主键生成策略标签</selectKey></li><li>动态sql：trim|where|set|foreach|if|when|choose|otherwise|bind</li></ol><h1 id="3-Dao的工作原理是什么？Dao接口里面的方法，参数不同时，方法能够重载吗？"><a href="#3-Dao的工作原理是什么？Dao接口里面的方法，参数不同时，方法能够重载吗？" class="headerlink" title="3. Dao的工作原理是什么？Dao接口里面的方法，参数不同时，方法能够重载吗？"></a>3. Dao的工作原理是什么？Dao接口里面的方法，参数不同时，方法能够重载吗？</h1><ul><li>通常一个xml映射文件，都会写一个dao接口与之对应，就是常说的mapper。</li><li>接口的全限名就是映射文件的namespace的值</li><li>接口的方法就是映射文件里面的MappedStatement的id值</li><li>接口内的参数就是传递给sql的参数。</li><li>mapper接口是没有实现类的，调用接口方法时，接口全限名+方法名拼接字符串作为key的值，可以定位到唯一的mappedstatement。</li></ul><p>Mybatis的Dao可以重载方法，但是多个接口对应的映射文件只能有一个。<br>仅有一个有参，无参。多个有参，参数必须一致使用@Param</p><p>Dao的工作原理是JDK动态代理，Mybatis运行时会使用JDK动态代理为Dao接口生成代理proxy对象，代理对象会拦截接口方法，执行MappedStatement里面对应的sql，返回sql结果。</p><h1 id="4-MyBatis是如何进行分页的？分页插件原理是什么？"><a href="#4-MyBatis是如何进行分页的？分页插件原理是什么？" class="headerlink" title="4. MyBatis是如何进行分页的？分页插件原理是什么？"></a>4. MyBatis是如何进行分页的？分页插件原理是什么？</h1><ol><li>使用RowBounds对象进行分页，针对ResultSet结果集执行的内存分页，而不是物理分页。</li><li>sql内直接写带有物理分页的参数</li><li>分页插件<br>原理：Mybatis提供的插件接口，实现自定义插件，在插件的拦截方法内拦截等待执行的sql，然后重写sql，添加对应的分页语句和物理分页参数</li></ol><h1 id="5-Mybatis的插件运行原理？"><a href="#5-Mybatis的插件运行原理？" class="headerlink" title="5. Mybatis的插件运行原理？"></a>5. Mybatis的插件运行原理？</h1><p>Mybatis使用的JDK动态代理，为需要拦截的接口生成代理对象以及拦截方法，当执行四种接口（三个Handler，Executor）指定的方法时候，就会进入拦截方法，调用invoke方法<br>编写插件方法：实现Mybatis的Interceptor接口并复写intercept方法，指定拦截哪些接口的方法。</p><h1 id="6-Mybatis是否支持延迟加载？"><a href="#6-Mybatis是否支持延迟加载？" class="headerlink" title="6. Mybatis是否支持延迟加载？"></a>6. Mybatis是否支持延迟加载？</h1><p>Mybatis仅支持association（一对一）关联对象和collection（一对多）关联集合对象的延迟加载。Mybatis配置中，可以使用lazyLoadingEnabled开启延迟加载。<br>原理是：使用CGLIB创建目标对象的代理对象，调用方法，进入拦截器方法，比如调用a.getB().getName(), 如果a.getB()是null，那么就会单独发送实现保存好的查询关联B的对象的sql，然后调用a.setB(b), 然后再查询。<br>总结：使用到数据的时候才开始查询</p><h1 id="7-Mybatis都有哪些Executor执行器，区别是什么？"><a href="#7-Mybatis都有哪些Executor执行器，区别是什么？" class="headerlink" title="7. Mybatis都有哪些Executor执行器，区别是什么？"></a>7. Mybatis都有哪些Executor执行器，区别是什么？</h1><ol><li>SimpleExecutor: 每执行一次update，select语句，开启一个statement对象，用完立即关闭statement对象</li><li>ReuseExecutor：执行update，select，将sql作为key，查找statement对象，如果不存在，就创建，存在就调用之前的，不会关闭statement对象，存储在map里面</li><li>BatchExecutor：执行update语句，将所有的sql都添加到批处理中，等待统一执行，缓存了多个statement对象</li></ol><h1 id="8-为什么Mybatis是半自动ORM映射工具？和全自动的区别在哪里？"><a href="#8-为什么Mybatis是半自动ORM映射工具？和全自动的区别在哪里？" class="headerlink" title="8. 为什么Mybatis是半自动ORM映射工具？和全自动的区别在哪里？"></a>8. 为什么Mybatis是半自动ORM映射工具？和全自动的区别在哪里？</h1><p>Hibernate 是全自动ORM工具，使用Hibernate查询关联对象，可以根据对象模型直接获取，所以是全自动的。<br>Mybatis查询关联对象的时候，需要手动编写sql语句来执行。</p><h1 id="9-Mybatis的xml映射文件和Mybatis内部数据结构之间的映射关系。"><a href="#9-Mybatis的xml映射文件和Mybatis内部数据结构之间的映射关系。" class="headerlink" title="9. Mybatis的xml映射文件和Mybatis内部数据结构之间的映射关系。"></a>9. Mybatis的xml映射文件和Mybatis内部数据结构之间的映射关系。</h1><p>mybatis会将所有的xml信息分装到All-in-One重量级对象Configuration内部。<br>在xml映射文件中，会将<parameterMap>解析成为ParameterMap对象，每个子对象都会被解析成ParameterMapping对象。<br><resultMap>解析为ResultMap对象，每个子对象都会被解析成ResultMapping对象。<br>每一个<select><update><delete><insert>都会被解析成为MappedStatement对象，标签内的sql都会被解析成为BoundSql对象。</insert></delete></update></select></resultMap></parameterMap></p><h1 id="10-Mybatis是否可以映射枚举类？"><a href="#10-Mybatis是否可以映射枚举类？" class="headerlink" title="10. Mybatis是否可以映射枚举类？"></a>10. Mybatis是否可以映射枚举类？</h1><p>可以，Mybatis可以映射任何对象到表的一列上。<br>映射方式为自定义一个TypeHandler，实现setParameter()和getResult()接口方法。<br>TypeHandler的作用：</p><ol><li>完成javaType到jdbcType转换</li><li>jdbcType到javaType的转换</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 面试题 </tag>
+            
+            <tag> Mybatis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SpringCloudGateway使用</title>
       <link href="/post/b4aab894.html"/>
       <url>/post/b4aab894.html</url>
