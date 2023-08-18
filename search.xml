@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>idea连接数据库失败</title>
+      <link href="/post/508954bc.html"/>
+      <url>/post/508954bc.html</url>
+      
+        <content type="html"><![CDATA[<p>今天idea连接mysql报错<br><img src="/images/idea-mysql-error-0.png" alt="Alt text"></p><p>但是昨天还可以使用<br>那就按照相应的指示去下载吧，但是下载了老半天有下载失败，开了加速器也没办法，然后仔细查看了下载的版本，我的mysql connector是8.0.25的版本，怎么需要我下载8.0.26呢，于是我去找了找我的相关connector，一般位置在C:\Users\admin.m2\repository\mysql\mysql-connector-java\8.0.25，而且我是没有26版本的。<br><img src="/images/idea-mysql-error-1.png" alt="Alt text"><br>而且相关的驱动程序页显示不存在。<br>于是将原本的连接源删除添加指定位置的。<br><img src="/images/idea-mysql-error-2.png" alt="Alt text"><br>然后测试成功了<br><img src="/images/idea-mysql-error-3.png" alt="Alt text"></p><p>关于这个问题我的个人猜测是我使用的是另一个connector，然后被我误删了，然后就找不到了（但是我记忆中没删除这个文件啊）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> idea问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> idea问题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>java爬虫</title>
       <link href="/post/67fe5464.html"/>
       <url>/post/67fe5464.html</url>
