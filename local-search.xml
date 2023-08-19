@@ -4,13 +4,38 @@
   
   
   <entry>
-    <title>java反射使用</title>
-    <link href="/post/a7809b33.html"/>
-    <url>/post/a7809b33.html</url>
+    <title>Fooocus安装部署</title>
+    <link href="/post/a2419ad4.html"/>
+    <url>/post/a2419ad4.html</url>
     
     <content type="html"><![CDATA[]]></content>
     
     
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>java反射使用</title>
+    <link href="/post/a7809b33.html"/>
+    <url>/post/a7809b33.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-首先先根据相应的类所在的包获取Class"><a href="#1-首先先根据相应的类所在的包获取Class" class="headerlink" title="1. 首先先根据相应的类所在的包获取Class"></a>1. 首先先根据相应的类所在的包获取Class</h1><p>例如我现在有个包com.flySdk.client.FlyApiClient</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">classPath</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;com.flySdk.client.FlyApiClient&quot;</span> <br>Class&lt;?&gt; clientClazz = Class.forName(classPath);<br></code></pre></td></tr></table></figure><h1 id="2-获取构造方法，以及填入相应的参数构造出客户端"><a href="#2-获取构造方法，以及填入相应的参数构造出客户端" class="headerlink" title="2. 获取构造方法，以及填入相应的参数构造出客户端"></a>2. 获取构造方法，以及填入相应的参数构造出客户端</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 1. 获取构造器，参数为ak,sk</span><br>Constructor&lt;?&gt; binApiClientConstructor = clientClazz.getConstructor(String.class, String.class);<br><span class="hljs-comment">// 2. 构造出客户端</span><br><span class="hljs-type">Object</span> <span class="hljs-variable">apiClient</span> <span class="hljs-operator">=</span> binApiClientConstructor.newInstance(accessKey, secretKey);<br></code></pre></td></tr></table></figure><h1 id="3-获取这个类里面的所有方法"><a href="#3-获取这个类里面的所有方法" class="headerlink" title="3. 获取这个类里面的所有方法"></a>3. 获取这个类里面的所有方法</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Method[] methods = clientClazz.getMethods();<br></code></pre></td></tr></table></figure><h1 id="4-判断方法是否是需要调用的方法，返回获取相应的方法里面的参数"><a href="#4-判断方法是否是需要调用的方法，返回获取相应的方法里面的参数" class="headerlink" title="4. 判断方法是否是需要调用的方法，返回获取相应的方法里面的参数"></a>4. 判断方法是否是需要调用的方法，返回获取相应的方法里面的参数</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span> (Method method : methods) &#123;<br>   <span class="hljs-keyword">if</span>(method.getName.equals(methodName))&#123;<br>       Class&lt;?&gt;[] parameterTypes =  method.getParameterTypes();<br>       <span class="hljs-comment">// 不需要参数，直接调用</span><br>        <span class="hljs-keyword">if</span> (parameterTypes.length == <span class="hljs-number">0</span>) &#123;<br>                       <span class="hljs-comment">// 如果没有参数，直接调用</span><br>           <span class="hljs-keyword">return</span> method.invoke(apiClient);&#125;<br>       <br>       <span class="hljs-comment">// 需要参数</span><br>         <span class="hljs-type">Gson</span> <span class="hljs-variable">gson</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Gson</span>();<br>         <span class="hljs-type">bject</span> <span class="hljs-variable">parameter</span> <span class="hljs-operator">=</span> gson.fromJson(userRequestParams, parameterTypes[<span class="hljs-number">0</span>]);<br>         <span class="hljs-keyword">return</span> method.invoke(apiClient, parameter);<br>   &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>首先先通过类路径获取到对应的Class<br>如果有构造方法的话，那么就先使用构造器，构造出一个newInstance，然后传入相应的值<br>接下来就是获取里面相应的方法，然后调用里面的方法invoke即可。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>反射</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>反射</tag>
+      
+    </tags>
     
   </entry>
   
