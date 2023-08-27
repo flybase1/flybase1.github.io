@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="FlyCode的个人博客">
 <meta property="og:description" content="最近新建了一个表，给里面的id设置了自增策略，原本应该是从1开始自动递增，但是这个id分布一点都不规律，但是建的表是没有问题的。查了一下基本上都是要设置auto_increasement&#x3D;1,但是无法生效，之后仔细比较了实体类，发现了自动生成的实体类里面使用mybatis plus的时候需要设置相应的自增，好像就plus需要设置。 12@TableId(type &#x3D; IdType.AUT">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://flybase1.github.io/post/image.png">
+<meta property="og:image" content="http://flybase1.github.io/images/mysql-id-change-1.png">
 <meta property="article:published_time" content="2023-08-27T12:09:15.000Z">
-<meta property="article:modified_time" content="2023-08-27T12:16:59.014Z">
+<meta property="article:modified_time" content="2023-08-27T12:52:20.065Z">
 <meta property="article:author" content="FlyCode">
 <meta property="article:tag" content="mysql">
 <meta property="article:tag" content="idea问题">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://flybase1.github.io/post/image.png">
+<meta name="twitter:image" content="http://flybase1.github.io/images/mysql-id-change-1.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -286,7 +286,7 @@
             
               <div class="markdown-body">
                 
-                <p>最近新建了一个表，给里面的id设置了自增策略，原本应该是从1开始自动递增，但是这个id分布一点都不规律，但是建的表是没有问题的。<br><img src="image.png" srcset="/img/loading.gif" lazyload alt="Alt text"><br>查了一下基本上都是要设置auto_increasement&#x3D;1,但是无法生效，之后仔细比较了实体类，发现了自动生成的实体类里面使用mybatis plus的时候需要设置相应的自增，好像就plus需要设置。</p>
+                <p>最近新建了一个表，给里面的id设置了自增策略，原本应该是从1开始自动递增，但是这个id分布一点都不规律，但是建的表是没有问题的。<br><img src="/images/mysql-id-change-1.png" srcset="/img/loading.gif" lazyload alt="Alt text"><br>查了一下基本上都是要设置auto_increasement&#x3D;1,但是无法生效，之后仔细比较了实体类，发现了自动生成的实体类里面使用mybatis plus的时候需要设置相应的自增，好像就plus需要设置。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@TableId(type = IdType.AUTO)</span><br><span class="hljs-keyword">private</span> Integer id;<br></code></pre></td></tr></table></figure>
 
 <p>先使用命令清空表，然后重新生成</p>
