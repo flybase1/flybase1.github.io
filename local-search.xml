@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>高版本整合Knif4J出现的问题</title>
+    <link href="/post/d4728700.html"/>
+    <url>/post/d4728700.html</url>
+    
+    <content type="html"><![CDATA[<p>官网：<a href="https://doc.xiaominfo.com/docs/action/springboot">https://doc.xiaominfo.com/docs/action/springboot</a></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs log">org.springframework.context.ApplicationContextException: Failed to start bean &#x27;documentationPluginsBootstrapper&#x27;; nested exception is java.lang.NullPointerException<br>at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:182) ~[spring-context-5.3.29.jar:5.3.29]<br>at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.29.jar:5.3.29]<br>at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:357) ~[spring-context-5.3.29.jar:5.3.29]<br>at java.lang.Iterable.forEach(Iterable.java:75) ~[na:1.8.0_333]<br>at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:156) ~[spring-context-5.3.29.jar:5.3.29]<br>at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:124) ~[spring-context-5.3.29.jar:5.3.29]<br>at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:938) ~[spring-context-5.3.29.jar:5.3.29]<br>at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.29.jar:5.3.29]<br>at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.15.jar:2.7.15]<br>at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) [spring-boot-2.7.15.jar:2.7.15]<br>at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) [spring-boot-2.7.15.jar:2.7.15]<br>at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) [spring-boot-2.7.15.jar:2.7.15]<br>at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) [spring-boot-2.7.15.jar:2.7.15]<br>at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) [spring-boot-2.7.15.jar:2.7.15]<br>at com.example.project01.Project01Application.main(Project01Application.java:13) [classes/:na]<br></code></pre></td></tr></table></figure><p>我使用的SpringBoot版本是2.7.15，而官方推荐的SpringBoot版本是2.3.x，很显然是版本的问题，一般而言是不大可能退回版本的，这里可以采用以下配置，使用SpringMVC的Ant路径匹配。</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br> <span class="hljs-attr">mvc:</span><br>  <span class="hljs-attr">pathmatch:</span><br>   <span class="hljs-attr">matching-strategy:</span> <span class="hljs-string">ant_path_matcher</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Knif4j</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Knif4j</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>rabbitMq配置及使用</title>
     <link href="/post/f550f4ab.html"/>
     <url>/post/f550f4ab.html</url>
