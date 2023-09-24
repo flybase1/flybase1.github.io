@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>PageHelper图标</title>
+    <link href="/post/87c541fd.html"/>
+    <url>/post/87c541fd.html</url>
+    
+    <content type="html"><![CDATA[<p>集成PageHelper时候发现命令提示行里面一直出现PageHelper的图标，如下图<br><img src="/images/pagehelpertbwt-0.png" alt="Alt text"><br>解决方法<br>修改jvm参数pageHelper.banner<br><img src="/images/pagehelpertbwt-1.png" alt="Alt text"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>idea问题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>idea问题</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>高版本整合Knif4J出现的问题</title>
     <link href="/post/d4728700.html"/>
     <url>/post/d4728700.html</url>
