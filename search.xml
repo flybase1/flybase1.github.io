@@ -8,9 +8,21 @@
       <link href="/post/2e25c10b.html"/>
       <url>/post/2e25c10b.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>security放行knife4j除了doc.html，还有其他的需要排除。<br>例如<br><img src="/images/securityfangxing.png" alt="Alt text"><br>默认主页是&#x2F;api&#x2F;doc.html#&#x2F;home，排除的里面还要加上#。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java">.antMatchers(<br>          <span class="hljs-string">&quot;/api/login&quot;</span>,<br>          <span class="hljs-string">&quot;/doc.html&quot;</span>,<br>          <span class="hljs-string">&quot;/doc.html/**&quot;</span>,<br>          <span class="hljs-string">&quot;/doc.html#/**&quot;</span>,<br>          <span class="hljs-string">&quot;/v2/**&quot;</span>,<br>          <span class="hljs-string">&quot;/v3/api-docs/**&quot;</span><br>  ).permitAll()<br><br></code></pre></td></tr></table></figure><p>放行以上入口，基本上就能访问文档不受影响了。</p>]]></content>
       
       
+      <categories>
+          
+          <category> 技术问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术问题 </tag>
+            
+        </tags>
       
     </entry>
     
