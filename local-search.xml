@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>git连接github 22超时</title>
+    <link href="/post/e913ff55.html"/>
+    <url>/post/e913ff55.html</url>
+    
+    <content type="html"><![CDATA[<p>最近提交项目到github的总是报错connect to host github.com port 22: Connection timed out,有的时候可以，有的时候传递不上去。</p><ol><li>判断自己是否能够和github进行连接<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh -T git@github.com<br></code></pre></td></tr></table></figure>如果连接不上，显示ssh: connect to host github.com port 22: Connection timed out,表示22端口这边可能被占用，被阻止，于是可以使用其他端口</li><li>转入.ssh<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd ~/.ssh<br></code></pre></td></tr></table></figure></li><li>编写config<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim config<br></code></pre></td></tr></table></figure>按i输入</li><li>输入配置<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell">Host github.com<br>User git<br>Hostname ssh.github.com<br>PreferredAuthentications publickey<br>IdentityFile ~/.ssh/id_rsa<br>Port 443<br><br>Host gitlab.com<br>Hostname altssh.gitlab.com<br>User git<br>Port 443<br>PreferredAuthentications publickey<br>IdentityFile ~/.ssh/id_rsa<br></code></pre></td></tr></table></figure>按住esc+ : 退出</li><li>重新测试连接<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh -T git@github.com<br></code></pre></td></tr></table></figure>这里如果正确会返回, 需要手动输入yes<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes<br></code></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>idea问题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>idea问题</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>前端工具集合</title>
     <link href="/post/e3c40b17.html"/>
     <url>/post/e3c40b17.html</url>
