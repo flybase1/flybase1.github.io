@@ -11,6 +11,18 @@
     <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>使用弹窗操作的时候，每次进行重新编辑，更新数据的时候，会弹出报错<br><img src="/images/wangEditorProblems.png" alt="Alt text"></p><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>目前靠谱的做法就是关闭dialog的同时销毁富文本编辑器，同时绑定dialogVisible</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;el-dialog<br>  v-model=&quot;dialogVisible&quot;<br>  title=&quot;弹窗&quot;<br>  width=&quot;80%&quot;<br>  :before-close=&quot;handleClose&quot;<br> &gt;<br>//富文本编辑器<br>&lt;div v-if=&quot;dialogVisible&quot; style=&quot;border: 1px solid #ccc;&quot;&gt;<br>   &lt;Toolbar<br>      style=&quot;border-bottom: 1px solid #ccc&quot;<br>      :editor=&quot;editor&quot;<br>      :defaultConfig=&quot;toolbarConfig&quot;<br>      :mode=&quot;mode&quot;<br>    /&gt;<br>    &lt;Editor<br>      style=&quot;height: 500px; overflow-y: hidden;&quot;<br>      v-model=&quot;html&quot;<br>      :defaultConfig=&quot;editorConfig&quot;<br>      :mode=&quot;mode&quot;<br>       @onCreated=&quot;onCreated&quot;<br>     /&gt;<br>&lt;/div&gt;<br></code></pre></td></tr></table></figure>]]></content>
     
     
+    <categories>
+      
+      <category>前端问题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端问题</tag>
+      
+    </tags>
     
   </entry>
   
