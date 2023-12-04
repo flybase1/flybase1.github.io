@@ -16,24 +16,25 @@
   <meta name="author" content="FlyCode">
   <meta name="keywords" content="">
   
-    <meta name="description" content="最近提交项目到github的总是报错connect to host github.com port 22: Connection timed out,有的时候可以，有的时候传递不上去。  判断自己是否能够和github进行连接1ssh -T git@github.com 如果连接不上，显示ssh: connect to host github.com port 22: Connection tim">
+    <meta name="description" content="问题描述使用弹窗操作的时候，每次进行重新编辑，更新数据的时候，会弹出报错 解决方案目前靠谱的做法就是关闭dialog的同时销毁富文本编辑器，同时绑定dialogVisible 12345678910111213141516171819202122&lt;el-dialog  v-model&#x3D;&quot;dialogVisible&quot;  title&#x3D;&quot;弹窗&quot;  width">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git连接github 22超时">
-<meta property="og:url" content="http://flybase1.github.io/post/e913ff55.html">
+<meta property="og:title" content="wangEdiotr富文本编辑框重新编辑报错">
+<meta property="og:url" content="http://flybase1.github.io/post/1800022b.html">
 <meta property="og:site_name" content="FlyCode的个人博客">
-<meta property="og:description" content="最近提交项目到github的总是报错connect to host github.com port 22: Connection timed out,有的时候可以，有的时候传递不上去。  判断自己是否能够和github进行连接1ssh -T git@github.com 如果连接不上，显示ssh: connect to host github.com port 22: Connection tim">
+<meta property="og:description" content="问题描述使用弹窗操作的时候，每次进行重新编辑，更新数据的时候，会弹出报错 解决方案目前靠谱的做法就是关闭dialog的同时销毁富文本编辑器，同时绑定dialogVisible 12345678910111213141516171819202122&lt;el-dialog  v-model&#x3D;&quot;dialogVisible&quot;  title&#x3D;&quot;弹窗&quot;  width">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-12-03T08:14:13.000Z">
-<meta property="article:modified_time" content="2023-12-03T08:25:06.478Z">
+<meta property="og:image" content="http://flybase1.github.io/images/wangEditorProblems.png">
+<meta property="article:published_time" content="2023-12-04T03:43:00.000Z">
+<meta property="article:modified_time" content="2023-12-04T03:49:09.115Z">
 <meta property="article:author" content="FlyCode">
-<meta property="article:tag" content="idea问题">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://flybase1.github.io/images/wangEditorProblems.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>git连接github 22超时 - FlyCode的个人博客</title>
+  <title>wangEdiotr富文本编辑框重新编辑报错 - FlyCode的个人博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="git连接github 22超时"></span>
+            <span id="subtitle" data-typed-text="wangEdiotr富文本编辑框重新编辑报错"></span>
           
         </div>
 
@@ -210,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-03 16:14" pubdate>
-          2023年12月3日 下午
+        <time datetime="2023-12-04 11:43" pubdate>
+          2023年12月4日 中午
         </time>
       </span>
     
@@ -222,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          608 字
+          677 字
         
       </span>
     
@@ -278,24 +279,14 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">git连接github 22超时</h1>
+            <h1 id="seo-header">wangEdiotr富文本编辑框重新编辑报错</h1>
             
             
               <div class="markdown-body">
                 
-                <p>最近提交项目到github的总是报错connect to host github.com port 22: Connection timed out,有的时候可以，有的时候传递不上去。</p>
-<ol>
-<li>判断自己是否能够和github进行连接<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh -T git@github.com<br></code></pre></td></tr></table></figure>
-如果连接不上，显示ssh: connect to host github.com port 22: Connection timed out,表示22端口这边可能被占用，被阻止，于是可以使用其他端口</li>
-<li>转入.ssh<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd ~/.ssh<br></code></pre></td></tr></table></figure></li>
-<li>编写config<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim config<br></code></pre></td></tr></table></figure>
-按i输入</li>
-<li>输入配置<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell">Host github.com<br>User git<br>Hostname ssh.github.com<br>PreferredAuthentications publickey<br>IdentityFile ~/.ssh/id_rsa<br>Port 443<br><br>Host gitlab.com<br>Hostname altssh.gitlab.com<br>User git<br>Port 443<br>PreferredAuthentications publickey<br>IdentityFile ~/.ssh/id_rsa<br></code></pre></td></tr></table></figure>
-按住esc+ : 退出</li>
-<li>重新测试连接<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh -T git@github.com<br></code></pre></td></tr></table></figure>
-这里如果正确会返回, 需要手动输入yes<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes<br></code></pre></td></tr></table></figure></li>
-</ol>
-
+                <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>使用弹窗操作的时候，每次进行重新编辑，更新数据的时候，会弹出报错<br><img src="/images/wangEditorProblems.png" srcset="/img/loading.gif" lazyload alt="Alt text"></p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>目前靠谱的做法就是关闭dialog的同时销毁富文本编辑器，同时绑定dialogVisible</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;el-dialog<br>  v-model=&quot;dialogVisible&quot;<br>  title=&quot;弹窗&quot;<br>  width=&quot;80%&quot;<br>  :before-close=&quot;handleClose&quot;<br> &gt;<br>//富文本编辑器<br>&lt;div v-if=&quot;dialogVisible&quot; style=&quot;border: 1px solid #ccc;&quot;&gt;<br>   &lt;Toolbar<br>      style=&quot;border-bottom: 1px solid #ccc&quot;<br>      :editor=&quot;editor&quot;<br>      :defaultConfig=&quot;toolbarConfig&quot;<br>      :mode=&quot;mode&quot;<br>    /&gt;<br>    &lt;Editor<br>      style=&quot;height: 500px; overflow-y: hidden;&quot;<br>      v-model=&quot;html&quot;<br>      :defaultConfig=&quot;editorConfig&quot;<br>      :mode=&quot;mode&quot;<br>       @onCreated=&quot;onCreated&quot;<br>     /&gt;<br>&lt;/div&gt;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -303,34 +294,6 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/idea%E9%97%AE%E9%A2%98/" class="category-chain-item">idea问题</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/idea%E9%97%AE%E9%A2%98/" class="print-no-link">#idea问题</a>
-      
-    </div>
   
 </div>
 
@@ -340,8 +303,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>git连接github 22超时</div>
-      <div>http://flybase1.github.io/post/e913ff55.html</div>
+      <div>wangEdiotr富文本编辑框重新编辑报错</div>
+      <div>http://flybase1.github.io/post/1800022b.html</div>
     </div>
     <div class="license-meta">
       
@@ -353,7 +316,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年12月3日</div>
+          <div>2023年12月4日</div>
         </div>
       
       
@@ -385,18 +348,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/post/1800022b.html" title="wangEdiotr富文本编辑框重新编辑报错">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">wangEdiotr富文本编辑框重新编辑报错</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/post/e3c40b17.html" title="前端工具集合">
-                        <span class="hidden-mobile">前端工具集合</span>
+                      <a href="/post/e913ff55.html" title="git连接github 22超时">
+                        <span class="hidden-mobile">git连接github 22超时</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
