@@ -1,235 +1,991 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>FlyCode的个人博客 - FlyCode的个人博客</title><meta name="author" content="FlyCode"><meta name="copyright" content="FlyCode"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="referrer" content="no-referrer"><meta property="og:type" content="website">
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="FlyCode">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
 <meta property="og:title" content="FlyCode的个人博客">
 <meta property="og:url" content="http://flybase1.github.io/page/3/index.html">
 <meta property="og:site_name" content="FlyCode的个人博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:author" content="FlyCode">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://flybase1.github.io/page/3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  dateSuffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>FlyCode的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"flybase1.github.io","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: 'FlyCode的个人博客',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2023-12-18 15:19:32'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
+
+
   
-    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = url
-      if (id) link.id = id
-      link.onerror = reject
-      link.onload = link.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        link.onload = link.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(link)
-    })
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
   
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+
+  <header>
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>FlyCode的个人博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="欢迎来到Fly Code的个人博客"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
     
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">32</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="FlyCode的个人博客"><span class="site-name">FlyCode的个人博客</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">FlyCode的个人博客</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/post/afa465ed.html" title="mysql id自增不规律">mysql id自增不规律</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-27T12:09:15.000Z" title="发表于 2023-08-27 20:09:15">2023-08-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/idea%E9%97%AE%E9%A2%98/">idea问题</a></span></div><div class="content">最近新建了一个表，给里面的id设置了自增策略，原本应该是从1开始自动递增，但是这个id分布一点都不规律，但是建的表是没有问题的。查了一下基本上都是要设置auto_increasement&#x3D;1,但是无法生效，之后仔细比较了实体类，发现了自动生成的实体类里面使用mybatis plus的时候需要设置相应的自增，好像就plus需要设置。
-12@TableId(type = IdType.AUTO)private Integer id;
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
 
-先使用命令清空表，然后重新生成
-1truncate table xxxx</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/post/f1601c3e.html" title="单例模式">单例模式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-21T02:42:47.000Z" title="发表于 2023-08-21 10:42:47">2023-08-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">1. 什么是单例模式？保证一个类仅有一个实例，可以对唯一实例进行受控访问。
-2. 代码12345678910111213public class Singleton &#123;    private static Singleton instance;    public Singleton() &#123;    &#125;        public static Singleton getInstance()&#123;        if (instance==null)&#123;            instance = new Singleton();        &#125;        return instance;    &#125;&#125;
 
-3. 多线程单例多线程的时候，多个线程同时访问单例，可能会创建多个实例，不满足单例模式，可以使用加锁保证每次只有一个线程能访问实例。
-1234567891011121314public class Singleton &#123;    private static Singleton instance;   ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/post/a2419ad4.html" title="Fooocus安装部署">Fooocus安装部署</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-19T09:19:09.000Z" title="发表于 2023-08-19 17:19:09">2023-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/AI/">AI</a></span></div><div class="content">1. 什么是Fooocus?是一款绘图软件，不需要像sd那么进行复杂的配置就可以简单的出图，只需要点击3次就可以完成出图，用户可以专注于提示词，最重要的是免费
-2. 要求需要满足最低GPU内存要求为4GB，内存最好大于20G，因为两个模型都12G了。
-3.官网https://github.com/lllyasviel/Fooocus需要下载三个文件，不过后面两个文件也可以担当启动之后再下载
-4. 解压启动解压后有三个文件然后将剩下两个文件加入Fooocus\models\checkpoints\里面去然后点击run.bat启动，启动后会弹出网址http://127.0.0.1:7860/勾选Advanced里面可以排除自己不想要的提示词，还有选择相应的照片尺寸，style里面可以选择自己喜欢的风格输入提示词，进行等待
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/post/afa465ed.html" target="_self">
+          mysql id自增不规律
+        </a>
+      </h2>
 
-5. 总结虽然说没有sd webui那么复杂了，但是图片出速度在我的电脑里面没有体现出来，可能是我的电脑性能不怎么好。
-</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/post/a7809b33.html" title="java反射使用">java反射使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T11:59:58.000Z" title="发表于 2023-08-18 19:59:58">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8F%8D%E5%B0%84/">反射</a></span></div><div class="content">1. 首先先根据相应的类所在的包获取Class例如我现在有个包com.flySdk.client.FlyApiClient
-12String classPath = &quot;com.flySdk.client.FlyApiClient&quot; Class&lt;?&gt; clientClazz = Class.forName(classPath);
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/post/afa465ed.html" target="_self">
+        <div>
+          最近新建了一个表，给里面的id设置了自增策略，原本应该是从1开始自动递增，但是这个id分布一点都不规律，但是建的表是没有问题的。查了一下基本上都是要设置auto_increasement&#x3D;1,但是无法生效，之后仔细比较了实体类，发现了自动生成的实体类里面使用mybatis plus的时候需要设置相应的自增，好像就plus需要设置。 12@TableId(type = IdType.AUT
+        </div>
+      </a>
 
-2. 获取构造方法，以及填入相应的参数构造出客户端1234// 1. 获取构造器，参数为ak,skConstructor&lt;?&gt; binApiClientConstructor = clientClazz.getConstructor(String.class, String.class);// 2. 构造出客户端Object apiClient = binApiClientConstructor.newInstance(accessKey, secretKey);
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-27 20:09" pubdate>
+              2023-08-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
 
-3. 获取这个类里面的所有方法1Method[] methods = clientClazz.getMethods();
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/idea%E9%97%AE%E9%A2%98/" class="category-chain-item">idea问题</a>
+  
+  
 
-4. 判断方法是否是需要调用 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/post/508954bc.html" title="idea连接数据库失败">idea连接数据库失败</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-18T10:16:59.000Z" title="发表于 2023-08-18 18:16:59">2023-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/idea%E9%97%AE%E9%A2%98/">idea问题</a></span></div><div class="content">今天idea连接mysql报错
-但是昨天还可以使用那就按照相应的指示去下载吧，但是下载了老半天有下载失败，开了加速器也没办法，然后仔细查看了下载的版本，我的mysql connector是8.0.25的版本，怎么需要我下载8.0.26呢，于是我去找了找我的相关connector，一般位置在C:\Users\admin.m2\repository\mysql\mysql-connector-java\8.0.25，而且我是没有26版本的。而且相关的驱动程序页显示不存在。于是将原本的连接源删除添加指定位置的。然后测试成功了
-关于这个问题我的个人猜测是我使用的是另一个connector，然后被我误删了，然后就找不到了（但是我记忆中没删除这个文件啊）
-</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/post/67fe5464.html" title="java爬虫">java爬虫</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-11T10:06:13.000Z" title="发表于 2023-08-11 18:06:13">2023-08-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></span></div><div class="content">仅作为学习参考1. 引入依赖1234567&lt;dependency&gt;    &lt;!-- jsoup HTML parser library @ https://jsoup.org/ --&gt;    &lt;groupId&gt;org.jsoup&lt;/groupId&gt;    &lt;artifactId&gt;jsoup&lt;/artifactId&gt;    &lt;version&gt;1.15.3&lt;/version&gt;&lt;/dependency&gt;
+      </span>
+    
+  
+</span>
 
-2. 爬取bing的图片第一步先找到bing的每个图片对应的标签例如图片的标签是 iuscp isv图片标题的标签是 inflnk核心就是先找到响应标签
-2.1 先写一个请求类用于发送json请求
-1234@Datapublic class RandomPictureRequest &#123;    private String searchText;&#125;
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/mysql/">#mysql</a>
+            
+              <a href="/tags/idea%E9%97%AE%E9%A2%98/">#idea问题</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
-2.2 实体类用于存储图片信息，包含url和标题
-123456@Datapublic class Picture i ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/post/735e5788.html" title="排序算法">排序算法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-11T09:00:00.000Z" title="发表于 2023-08-11 17:00:00">2023-08-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">1. 快速排序快排的核心是先选出一个中间值，然后将小于的数放在左边，大于的数放在右边，然后这个数的两边都是有序的，然再次对左右两个序列进行递归排序
-public static void quickSort(int[] arr, int start, int end) &#123;
-       if (start >= end) &#123;
-           return;
-       &#125;
-       // 对撞双指针
-       int left = start;
-       int right = end;
-       int pivot = arr[(start + end) / 2];
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/post/f1601c3e.html" target="_self">
+          单例模式
+        </a>
+      </h2>
 
-       while (left &lt;= right) &#123;
-           while ((left &lt;= right &amp;&amp; arr[left] &lt; pivot)) &#123;
-               left++;
-           &#125;
-           while (left &lt;= ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/post/ad7a7ab2.html" title="常见限流算法">常见限流算法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-11T07:12:12.000Z" title="发表于 2023-08-11 15:12:12">2023-08-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%99%90%E6%B5%81/">限流</a></span></div><div class="content">1. 固定窗口限流使用单位时间内的计数器来进行限流
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/post/f1601c3e.html" target="_self">
+        <div>
+          1. 什么是单例模式？保证一个类仅有一个实例，可以对唯一实例进行受控访问。 2. 代码12345678910111213public class Singleton &#123;    private static Singleton instance;    public Singleton() &#123;    &#125;        public static Singleton ge
+        </div>
+      </a>
 
-当前计数器小于阈值，可以获取请求
-当前计数器大于阈值，拒绝访问
-当前时间窗口过了，进行下一个时间窗口
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-21 10:42" pubdate>
+              2023-08-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
 
-缺点是容易出现临界问题。假设现在阈值时5，单位时间窗口时1s，那么如果0.8-1s内请求了5次，1s-1.2s请求了5次数，那么0.8s-1.8s内请求数大于阈值
-1234567891011121314151617181920212223242526// 阈值  public static final long PermitEverySecond = 5;  // 上一个窗口的时间  public long lastTime = System.currentTimeMillis();  // 计数器  public int counter;  // 时间窗口  public long WindowsTimeUnit = 1000L;  public synchronized boolean fixedRate() &#123;      // 当前时间      long now = System.currentTimeMilli ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/post/c6269d0.html" title="mongo安装和使用">mongo安装和使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-08T23:41:49.000Z" title="发表于 2023-08-09 07:41:49">2023-08-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/mongo/">mongo</a></span></div><div class="content">1. 官网https://www.mongodb.com/try/download/community可以选择msi或者.zip下载我这里采用msi
-2. 创建data和log目录可以指定目录
-安装完成使用ctrl+shift+esc切换至服务，在里面查看是否有mongoDB服务开启或者网址栏输入http://localhost:27017/
-这个安装包里面的bin是放在c盘里面的
-但是里面没有以前的mongo.exemongod.exe启动服务mongos.exe管理分片集群
-3. 安装MongoDB shellhttps://www.mongodb.com/try/download/shell可以指定目录进入mongdb的bin目录，命令行输入mongosh.exe
-4. 环境变量系统变量path里面输入相应地址接下来可以在任何cmd里面输入mongosh,mongod命令
-</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/post/e15882b1.html" title="SpringBoot发送简单邮件">SpringBoot发送简单邮件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-08T10:56:55.000Z" title="发表于 2023-08-08 18:56:55">2023-08-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/SpringBoot/">SpringBoot</a></span></div><div class="content">1. 引入依赖12345&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-mail&lt;/artifactId&gt;&lt;/dependency&gt;
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="category-chain-item">设计模式</a>
+  
+  
 
-2. yml配置123456spring:  mail:    host: smtp.qq.com    port: 25    username: xxx # 邮箱账号    password: xxx # 授权码
+      </span>
+    
+  
+</span>
 
-3. QQ邮箱授权码在设置，账号里面，开启服务生成授权码发送信息生成授权码（妥善保管）
-4. 发送简单邮件service123public interface MailService &#123;    void sendEmail();&#125;
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">#设计模式</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
-实现类
-123456789101112131415161718192021222324252627@Servicepublic class MailServiceImpl im ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">FlyCode</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">50</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">32</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/post/54b144d6.html" title="SpringBoot校验实体类">SpringBoot校验实体类</a><time datetime="2023-12-10T08:39:35.000Z" title="发表于 2023-12-10 16:39:35">2023-12-10</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/post/a6c89061.html" title="SpringBoot-Security-手机验证码登录">SpringBoot-Security-手机验证码登录</a><time datetime="2023-12-09T03:07:28.000Z" title="发表于 2023-12-09 11:07:28">2023-12-09</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/post/54d280c2.html" title="SpringBoot-Security 图形验证码">SpringBoot-Security 图形验证码</a><time datetime="2023-12-09T01:30:39.000Z" title="发表于 2023-12-09 09:30:39">2023-12-09</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/post/1800022b.html" title="wangEdiotr富文本编辑框重新编辑报错">wangEdiotr富文本编辑框重新编辑报错</a><time datetime="2023-12-04T03:43:00.000Z" title="发表于 2023-12-04 11:43:00">2023-12-04</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/post/e913ff55.html" title="git连接github 22超时">git连接github 22超时</a><time datetime="2023-12-03T08:14:13.000Z" title="发表于 2023-12-03 16:14:13">2023-12-03</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>分类</span>
-            <a class="card-more-btn" href="/categories/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a>
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/post/a2419ad4.html" target="_self">
+          Fooocus安装部署
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/post/a2419ad4.html" target="_self">
+        <div>
+          1. 什么是Fooocus?是一款绘图软件，不需要像sd那么进行复杂的配置就可以简单的出图，只需要点击3次就可以完成出图，用户可以专注于提示词，最重要的是免费 2. 要求需要满足最低GPU内存要求为4GB，内存最好大于20G，因为两个模型都12G了。 3.官网https://github.com/lllyasviel/Fooocus需要下载三个文件，不过后面两个文件也可以担当启动之后再下载 4.
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-19 17:19" pubdate>
+              2023-08-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/AI/" class="category-chain-item">AI</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/AI/">#AI</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/post/a7809b33.html" target="_self">
+          java反射使用
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/post/a7809b33.html" target="_self">
+        <div>
+          1. 首先先根据相应的类所在的包获取Class例如我现在有个包com.flySdk.client.FlyApiClient 12String classPath = &quot;com.flySdk.client.FlyApiClient&quot; Class&lt;?&gt; clientClazz = Class.forName(classPath);  2. 获取构造方法，以及填入相应的参
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-18 19:59" pubdate>
+              2023-08-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%8F%8D%E5%B0%84/" class="category-chain-item">反射</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%8F%8D%E5%B0%84/">#反射</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/post/508954bc.html" target="_self">
+          idea连接数据库失败
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/post/508954bc.html" target="_self">
+        <div>
+          今天idea连接mysql报错 但是昨天还可以使用那就按照相应的指示去下载吧，但是下载了老半天有下载失败，开了加速器也没办法，然后仔细查看了下载的版本，我的mysql connector是8.0.25的版本，怎么需要我下载8.0.26呢，于是我去找了找我的相关connector，一般位置在C:\Users\admin.m2\repository\mysql\mysql-connector-java
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-18 18:16" pubdate>
+              2023-08-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/idea%E9%97%AE%E9%A2%98/" class="category-chain-item">idea问题</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/idea%E9%97%AE%E9%A2%98/">#idea问题</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/post/67fe5464.html" target="_self">
+          java爬虫
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/post/67fe5464.html" target="_self">
+        <div>
+          仅作为学习参考1. 引入依赖1234567&lt;dependency&gt;    &lt;!-- jsoup HTML parser library @ https://jsoup.org/ --&gt;    &lt;groupId&gt;org.jsoup&lt;/groupId&gt;    &lt;artifactId&gt;jsoup&lt;/artifactId&gt;    &l
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-11 18:06" pubdate>
+              2023-08-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%88%AC%E8%99%AB/" class="category-chain-item">爬虫</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%88%AC%E8%99%AB/">#爬虫</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/post/735e5788.html" target="_self">
+          排序算法
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/post/735e5788.html" target="_self">
+        <div>
+          1. 快速排序快排的核心是先选出一个中间值，然后将小于的数放在左边，大于的数放在右边，然后这个数的两边都是有序的，然再次对左右两个序列进行递归排序 public static void quickSort(int[] arr, int start, int end) &#123;        if (start >= end) &#123;            return;        &
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-11 17:00" pubdate>
+              2023-08-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/post/ad7a7ab2.html" target="_self">
+          常见限流算法
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/post/ad7a7ab2.html" target="_self">
+        <div>
+          1. 固定窗口限流使用单位时间内的计数器来进行限流  当前计数器小于阈值，可以获取请求 当前计数器大于阈值，拒绝访问 当前时间窗口过了，进行下一个时间窗口  缺点是容易出现临界问题。假设现在阈值时5，单位时间窗口时1s，那么如果0.8-1s内请求了5次，1s-1.2s请求了5次数，那么0.8s-1.8s内请求数大于阈值 123456789101112131415161718192021222324
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-11 15:12" pubdate>
+              2023-08-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%99%90%E6%B5%81/" class="category-chain-item">限流</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%99%90%E6%B5%81/">#限流</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/post/c6269d0.html" target="_self">
+          mongo安装和使用
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/post/c6269d0.html" target="_self">
+        <div>
+          1. 官网https://www.mongodb.com/try/download/community可以选择msi或者.zip下载我这里采用msi 2. 创建data和log目录可以指定目录 安装完成使用ctrl+shift+esc切换至服务，在里面查看是否有mongoDB服务开启或者网址栏输入http://localhost:27017/ 这个安装包里面的bin是放在c盘里面的 但是里面没有以
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-09 07:41" pubdate>
+              2023-08-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/mongo/" class="category-chain-item">mongo</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%AE%89%E8%A3%85/">#安装</a>
+            
+              <a href="/tags/mongo/">#mongo</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/post/e15882b1.html" target="_self">
+          SpringBoot发送简单邮件
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/post/e15882b1.html" target="_self">
+        <div>
+          1. 引入依赖12345&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-mail&lt;/artifactId&gt;&lt;/dependency&gt;  2. yml配置123456spring:  ma
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-08 18:56" pubdate>
+              2023-08-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/SpringBoot/" class="category-chain-item">SpringBoot</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/SpringBoot/">#SpringBoot</a>
+            
+              <a href="/tags/mail/">#mail</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
             </div>
-            <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/AI/"><span class="card-category-list-name">AI</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/API/"><span class="card-category-list-name">API</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/API/stater/"><span class="card-category-list-name">stater</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hutool/"><span class="card-category-list-name">Hutool</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hutool/API/"><span class="card-category-list-name">API</span><span class="card-category-list-count">2</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Knif4j/"><span class="card-category-list-name">Knif4j</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/RPC/"><span class="card-category-list-name">RPC</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/SpringBoot/"><span class="card-category-list-name">SpringBoot</span><span class="card-category-list-count">6</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 1.1em; color: #999">部署</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.1em; color: #999">爬虫</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 1.1em; color: #999">项目</a> <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 1.1em; color: #999">AI绘画</a> <a href="/tags/vue/" style="font-size: 1.27em; color: #99a0a9">vue</a> <a href="/tags/SpringSecurity/" style="font-size: 1.21em; color: #999ea4">SpringSecurity</a> <a href="/tags/AI/" style="font-size: 1.16em; color: #999b9e">AI</a> <a href="/tags/Hutool/" style="font-size: 1.16em; color: #999b9e">Hutool</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.44em; color: #99a7ba">算法</a> <a href="/tags/Mysql%E6%97%A5%E5%BF%97/" style="font-size: 1.1em; color: #999">Mysql日志</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E9%97%AE%E9%A2%98/" style="font-size: 1.1em; color: #999">前端问题</a> <a href="/tags/%E5%8F%8D%E5%B0%84/" style="font-size: 1.1em; color: #999">反射</a> <a href="/tags/spring/" style="font-size: 1.16em; color: #999b9e">spring</a> <a href="/tags/Knif4j/" style="font-size: 1.1em; color: #999">Knif4j</a> <a href="/tags/%E5%B9%B6%E5%8F%91/" style="font-size: 1.16em; color: #999b9e">并发</a> <a href="/tags/%E9%99%90%E6%B5%81/" style="font-size: 1.1em; color: #999">限流</a> <a href="/tags/mongo/" style="font-size: 1.1em; color: #999">mongo</a> <a href="/tags/Zookeeper/" style="font-size: 1.1em; color: #999">Zookeeper</a> <a href="/tags/java/" style="font-size: 1.33em; color: #99a2af">java</a> <a href="/tags/mail/" style="font-size: 1.1em; color: #999">mail</a> <a href="/tags/Http/" style="font-size: 1.1em; color: #999">Http</a> <a href="/tags/Mybatis/" style="font-size: 1.1em; color: #999">Mybatis</a> <a href="/tags/%E7%AD%BE%E5%90%8D%E8%AE%A4%E8%AF%81/" style="font-size: 1.1em; color: #999">签名认证</a> <a href="/tags/redis/" style="font-size: 1.27em; color: #99a0a9">redis</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.1em; color: #999">设计模式</a> <a href="/tags/SpringBoot/" style="font-size: 1.39em; color: #99a4b4">SpringBoot</a> <a href="/tags/Spring-boot-stater/" style="font-size: 1.1em; color: #999">Spring boot stater</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 1.5em; color: #99a9bf">面试题</a> <a href="/tags/RPC/" style="font-size: 1.1em; color: #999">RPC</a> <a href="/tags/idea%E9%97%AE%E9%A2%98/" style="font-size: 1.27em; color: #99a0a9">idea问题</a> <a href="/tags/Api/" style="font-size: 1.1em; color: #999">Api</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 1.1em; color: #999">集合</a> <a href="/tags/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%B2%99%E7%9B%92/" style="font-size: 1.1em; color: #999">支付宝沙盒</a> <a href="/tags/IO/" style="font-size: 1.1em; color: #999">IO</a> <a href="/tags/%E4%B8%83%E7%89%9B%E4%BA%91/" style="font-size: 1.1em; color: #999">七牛云</a> <a href="/tags/%E5%AE%89%E8%A3%85/" style="font-size: 1.16em; color: #999b9e">安装</a> <a href="/tags/mysql/" style="font-size: 1.21em; color: #999ea4">mysql</a> <a href="/tags/react/" style="font-size: 1.1em; color: #999">react</a> <a href="/tags/%E7%BD%91%E5%85%B3/" style="font-size: 1.1em; color: #999">网关</a> <a href="/tags/hexo/" style="font-size: 1.1em; color: #999">hexo</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">36</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">67</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-12-18T07:19:32.455Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By FlyCode</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
